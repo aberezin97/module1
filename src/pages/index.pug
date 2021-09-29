@@ -1,0 +1,21 @@
+extends layouts/page.pug
+
+block variables
+    - var title = "Добро пожаловать"
+
+block content
+    h1 Добро пожаловть
+    ul
+        li
+            a(href="404.pug") Страница не найдена
+        li
+            a(href="500.pug") Ошибка сервера
+        li
+            a(href="signin.pug") Авторизация
+        li
+            a(href="signup.pug") Регистрация
+        li
+            a(href="profile.pug") Профиль
+        li
+            a(href="chat.pug") Чат
+        
