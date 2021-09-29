@@ -2,3 +2,19 @@ extends layouts/page.pug
 
 block variables
     - var title = "Авторизация"
+
+block content
+    div.centerwrapper.centerwrapper-shadowed
+        div.centerwrapper__header
+            h2 Вход
+        div.centerwrapper__content
+            form(action="#", method="post")
+                input.input-field(type="text", name="login" placeholder="Логин")
+                input.input-field(type="password", name="password" placeholder="Пароль")
+        div.centerwrapper__footer
+            button.btn.btn-blue(onclick="handleSignin()" disabled) Войти
+            div
+                a(href="signup.pug") Нет аккаунта?
+
+block script
+    script(src="./scripts/signin.js")

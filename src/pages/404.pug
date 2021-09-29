@@ -2,3 +2,13 @@ extends layouts/page.pug
 
 block variables
     - var title = "Страница не найдена"
+
+block content
+    div.centerwrapper.centerwrapper-transparent
+        div.centerwrapper__header
+            h2 404
+        div.centerwrapper__content
+            p Не туда попали
+        div.centerwrapper__footer
+            div
+                a(href="chat.pug") Назад к чатам
