@@ -1,116 +1,282 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-$active: #3369F3;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+$active: #3369f3;
 $disabled: #bbb;
 $bg-color: #fff;
-
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
-    font-size: 1.6rem;
-    font-weight: 400;
-}
-
-.centerwrapper {
-    text-align: center;
-    width: 30rem;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.centerwrapper-transparent {
-    background-color: $bg-color;
-    border: none;
-}
-
-.centerwrapper-shadowed {
-    background-color: $bg-color;
-    border-radius: 0.5rem;
-    box-shadow: 0 1rem 1rem 1rem #ddd;
-}
-
-.centerwrapper__header {
-    margin: 2rem 0;
-}
-
-.centerwrapper__content {
-
-}
-
-.centerwrapper__footer {
-    margin: 2rem 0;
-}
-
-.centerwrapper__footer a {
-    font-size: 1.3rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 a,
 a:link,
 a:visited {
-    text-decoration: none;
-    color: $active;
+  text-decoration: none;
+  color: $active;
+}
+
+.centerwrapper {
+  text-align: center;
+  width: 30rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &-transparent {
+    background-color: $bg-color;
+    border: none;
+  }
+
+  &-shadowed {
+    background-color: $bg-color;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 1rem 1rem #ddd;
+  }
+
+  &__header {
+    margin: 2rem 0;
+  }
+
+  &__footer {
+    margin: 2rem 0;
+
+    a {
+      font-size: 1.3rem;
+    }
+  }
 }
 
 .input-field {
-    display: inline-block;
-    height: 4rem;
-    background-color: transparent;
-    border: none;
-    width: 85%;
-    border-bottom: 0.1rem solid #bbb;
+  display: inline-block;
+  height: 4rem;
+  background-color: transparent;
+  border: none;
+  width: 85%;
+  border-bottom: 0.1rem solid #bbb;
 
-    &:focus {
-        outline: none;
-    }
-}
+  &:focus {
+    outline: none;
+  }
 
-.input-field-wrong {
+  &-wrong {
     border-color: red;
-}
+  }
 
-.input-field-active {
+  &-active {
     border-color: $active;
+  }
 }
 
 .btn {
-    padding: 1rem 3rem;
-    border: none;
-    border-radius: 0.5rem;
-    text-align: center;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 85%;
 
-    width: 85%;
-}
-
-.btn:active {
+  &:active {
     transform: translateY(0.1rem);
-}
+  }
 
-.btn-blue {
+  &-blue {
     background-color: $active;
     color: #fff;
+
+    &:hover {
+      background-color: darken($color: $active, $amount: 5%);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background-color: #bbb;
+    }
+  }
 }
 
-.btn-blue:hover {
-    background-color: darken($color: $active, $amount: 5%);
-}
+.chat {
+  .leftpanel {
+    position: relative;
+    left: 0px;
+    width: 32rem;
+    height: 100vh;
+    float: left;
+    background: #fff;
+    border-right: 0.1rem solid #ddd;
 
-.btn-blue:disabled,
-.btn-blue:disabled:hover {
-    background-color: #bbb;
-}
+    &_profilebutton {
+      float: left;
+      width: 3.2rem;
+      height: 3.2rem;
+      margin: 2rem 1.5rem;
+      margin-bottom: 0;
+      color: #bbb;
+      cursor: pointer;
+      opacity: 0.6;
+      background: none;
+      border: none;
 
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &__header {
+      width: 100%;
+      height: 7rem;
+      background: #fff;
+    }
+
+    &__search {
+      width: calc(100% - 8.5rem);
+      height: 4rem;
+      border: none;
+      border-radius: 0.4rem;
+      padding: 0.8rem;
+      background: #eee;
+      display: block;
+      float: left;
+      margin-top: 1.4rem;
+
+      &:focus {
+        color: #444;
+        border: none;
+        background: rgb(243, 243, 243);
+        outline: none;
+      }
+    }
+
+    &__chats {
+      width: 100%;
+      height: calc(100vh - 7rem);
+      float: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #333;
+    }
+  }
+
+  .rightpanel {
+    float: left;
+    width: calc(100% - 32rem);
+    height: 100vh;
+    background: #999;
+
+    .topbar {
+      position: relative;
+      width: 100%;
+      height: 7rem;
+      background: #fff;
+
+      &__leftside {
+        float: left;
+        clear: left;
+        margin-left: 3rem;
+        margin-top: 0.5rem;
+        color: #419fd9;
+        font-weight: 300;
+        cursor: default;
+      }
+
+      &__rightside {
+        clear: none;
+        float: right;
+        margin-right: 2rem;
+      }
+
+      &__button {
+        width: 5rem;
+        height: 5rem;
+        margin-top: 1rem;
+        background: #fff;
+        color: #888;
+        border: none;
+        border-radius: 100%;
+
+        &:hover {
+          color: #555;
+          background: #ddd;
+        }
+      }
+    }
+
+    &__conversation {
+      float: left;
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 14rem);
+      background: #333;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    &__replybar {
+      width: 100%;
+      height: 7rem;
+      float: left;
+      background: #fff;
+
+      .attach {
+        width: 7rem;
+        height: 7rem;
+        color: #777;
+        background: #fff;
+        border: none;
+        float: left;
+
+        &:hover {
+          color: #555;
+          background: #ddd;
+        }
+      }
+
+      .message {
+        width: calc(100% - 15rem);
+        float: left;
+        height: 7rem;
+        padding: 0 0.8rem;
+        font-size: 1.6rem;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .button {
+          float: right;
+          height: 5rem;
+          width: 5rem;
+          margin-top: 1rem;
+          margin-right: 2rem;
+          background-color: #fff;
+          border: none;
+          color: $active;
+
+          &:hover {
+              color: darken($color: $active, $amount: 15%)
+          }
+      }
+
+      .other {
+        float: right;
+        width: 12rem;
+        height: 7rem;
+      }
+    }
+  }
+}

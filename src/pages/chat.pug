@@ -1,12 +1,27 @@
 extends layouts/page.pug
 
 block variables
-    - var title = "Чат"
+    - let title = "Чат"
 
 block content
-    div
-        div
-    div
-        div
-        div
-        div
+    .chat
+        .leftpanel
+            .leftpanel__header
+                button.leftpanel_profilebutton
+                    i(class="fas fa-cog fa-2x")
+                input.leftpanel__search(type="search" placeholder="Поиск...")
+            .leftpanel__chats
+        .rightpanel
+            .topbar
+                .topbar__rightside
+                    button.topbar__button
+                        i(class="fas fa-ellipsis-v fa-2x")
+                .topbar__leftside
+            .rightpanel__conversation
+            .rightpanel__replybar
+                button.attach
+                    i(class="fas fa-paperclip fa-2x")
+                input.message(type="text" placeholder="Сообщение...")
+                button.button
+                        i(class="fas fa-paper-plane fa-2x")
+                
