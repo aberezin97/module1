@@ -1,27 +1,76 @@
 extends layouts/page.pug
 
+include components/chat/message.pug
+include components/chat/chatbutton.pug
+
 block variables
     - let title = "Чат"
+    - let name = "Alexander Berezin"
+    - let status = "online"
 
 block content
     .chat
         .leftpanel
             .leftpanel__header
-                button.leftpanel_profilebutton
-                    i(class="fas fa-cog fa-2x")
-                input.leftpanel__search(type="search" placeholder="Поиск...")
+                a.leftpanel__profilebutton(href="profile.pug")
+                    <i class="fas fa-cog fa-2x"></i>
+                input.leftpanel__searchfield(type="search" placeholder="Поиск...")
             .leftpanel__chats
+                - let foo1 = 0;
+                while foo1 < 50
+                    +chatbutton({
+                        name: 'Alexander Berezin',
+                        message: 'Hello world!...',
+                        date: 'Now',
+                        count: '1',
+                        image: './images/img_avatar.png'
+                    })
+                    +chatbutton({
+                        name: 'Daniel Berezin',
+                        message: 'Hello world!...',
+                        date: '12:00',
+                        count: '99',
+                        image: './images/img_avatar2.png'
+                    })
+                    - foo1++;
         .rightpanel
             .topbar
-                .topbar__rightside
-                    button.topbar__button
-                        i(class="fas fa-ellipsis-v fa-2x")
                 .topbar__leftside
+                    p= name
+                    p= status
+                .topbar__rightside
+                    div.dropdown
+                        button.add_del_user.dropdown__dropbtn
+                            <i class="fas fa-ellipsis-v fa-2x"></i>
+                        div.dropdown__content
+                            a(href="#") Добавить пользователя
+                            a(href="#") Удалить пользователя
             .rightpanel__conversation
+                -let foo = 0;
+                while foo < 50
+                    +sentMessage({
+                        msg: 'Hello, world!Hello, world!Hello, world!Hello, worHello, world!ld!Hello, world!Hello, world!',
+                        time: '12:00'
+                    })
+                    +receivedMessage({
+                        msg: 'Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!',
+                        time: 'Yesterday at 6:00 pm'
+                    })
+                    - foo++;
             .rightpanel__replybar
-                button.attach
-                    i(class="fas fa-paperclip fa-2x")
-                input.message(type="text" placeholder="Сообщение...")
-                button.button
+                div.dropup
+                    button.attach.dropup__dropbtn
+                        i(class="fas fa-paperclip fa-2x")
+                    div.dropup__content
+                        a(href="#")
+                            i(class="fas fa-photo-video") 
+                        a(href="#")
+                            i(class="far fa-file")
+                        a(href="#")
+                            i(class="fas fa-location-arrow")
+                input.message(type="text" name="message" placeholder="Сообщение...")
+                button.send
                         i(class="fas fa-paper-plane fa-2x")
                 
+block script
+    script(src="./scripts/chat.js" type="module")

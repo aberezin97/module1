@@ -1,7 +1,7 @@
 extends layouts/page.pug
 
 block variables
-    - let title = "Профиль"
+    - let title = "Изменить данные"
     - let login = "alex"
     - let email = "alex@foo.bar"
     - let first_name = "Александр"
@@ -13,27 +13,24 @@ block content
     .profile
         .profile__header
             .profile__avatar
-            p.profile__login= display_name
         .profile__content
             div.foo
                 span Почта
-                input.profile__field(disabled value=email)
+                input.profile__field(value=email)
             div.foo
                 span Логин
-                input.profile__field(disabled value=login)
+                input.profile__field(value=login)
             div.foo
                 span Имя
-                input.profile__field(disabled value=first_name)
+                input.profile__field(value=first_name)
             div.foo
                 span Фамилия
-                input.profile__field(disabled value=last_name)
+                input.profile__field(value=last_name)
             div.foo
                 span Имя в чате
-                input.profile__field(disabled value=display_name)
+                input.profile__field(value=display_name)
             div.foo
                 span Телефон
-                input.profile__field(disabled value=phone)
-        .profile__footer
-            a(href="profile_change_data.pug") Изменить данные
-            a(href="profile_change_password.pug") Изменить пароль
-            a(href="index.pug") Выйти
+                input.profile__field(value=phone)
+        .profile__footer.profile__footer_centered
+            button.btn.btn-blue Сохранить

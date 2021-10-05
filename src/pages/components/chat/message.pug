@@ -1,0 +1,7 @@
+mixin receivedMessage(data)
+    .msg.msg-received=data.msg
+        span.timestamp=data.time
+
+mixin sentMessage(data)
+    .msg.msg-sent=data.msg
+        span.timestamp=data.time
