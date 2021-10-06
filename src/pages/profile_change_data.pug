@@ -1,4 +1,4 @@
-extends layouts/page.pug
+extends layouts/profile_page.pug
 
 block variables
     - let title = "Изменить данные"
@@ -8,29 +8,32 @@ block variables
     - let last_name = "Березин"
     - let display_name = "Alex"
     - let phone = "+7 (888) 123-45-67"
+    - let back_url = "profile.pug"
 
-block content
-    .profile
-        .profile__header
-            .profile__avatar
-        .profile__content
-            div.foo
-                span Почта
-                input.profile__field(value=email)
-            div.foo
-                span Логин
-                input.profile__field(value=login)
-            div.foo
-                span Имя
-                input.profile__field(value=first_name)
-            div.foo
-                span Фамилия
-                input.profile__field(value=last_name)
-            div.foo
-                span Имя в чате
-                input.profile__field(value=display_name)
-            div.foo
-                span Телефон
-                input.profile__field(value=phone)
-        .profile__footer.profile__footer_centered
-            button.btn.btn-blue Сохранить
+block profile_header
+    include components/profile/change_avatar_modal.pug
+    .profile__avatar(id="avatar_change_div")
+        span Изменить аватар
+
+block profile_body
+    div.foo
+        span Почта
+        input.profile__field(value=email)
+    div.foo
+        span Логин
+        input.profile__field(value=login)
+    div.foo
+        span Имя
+        input.profile__field(value=first_name)
+    div.foo
+        span Фамилия
+        input.profile__field(value=last_name)
+    div.foo
+        span Имя в чате
+        input.profile__field(value=display_name)
+    div.foo
+        span Телефон
+        input.profile__field(value=phone)
+
+block profile_footer
+    button.btn.btn-blue Сохранить

@@ -1,4 +1,4 @@
-extends layouts/page.pug
+extends layouts/profile_page.pug
 
 block variables
     - let title = "Профиль"
@@ -8,32 +8,33 @@ block variables
     - let last_name = "Березин"
     - let display_name = "Alex"
     - let phone = "+7 (888) 123-45-67"
+    - let back_url = "chat.pug"
 
-block content
-    .profile
-        .profile__header
-            .profile__avatar
-            p.profile__login= display_name
-        .profile__content
-            div.foo
-                span Почта
-                input.profile__field(disabled value=email)
-            div.foo
-                span Логин
-                input.profile__field(disabled value=login)
-            div.foo
-                span Имя
-                input.profile__field(disabled value=first_name)
-            div.foo
-                span Фамилия
-                input.profile__field(disabled value=last_name)
-            div.foo
-                span Имя в чате
-                input.profile__field(disabled value=display_name)
-            div.foo
-                span Телефон
-                input.profile__field(disabled value=phone)
-        .profile__footer
-            a(href="profile_change_data.pug") Изменить данные
-            a(href="profile_change_password.pug") Изменить пароль
-            a(href="index.pug") Выйти
+block profile_header
+    .profile__avatar
+    p.profile__login= display_name
+
+block profile_body
+    div.foo
+        span Почта
+        input.profile__field(disabled value=email)
+    div.foo
+        span Логин
+        input.profile__field(disabled value=login)
+    div.foo
+        span Имя
+        input.profile__field(disabled value=first_name)
+    div.foo
+        span Фамилия
+        input.profile__field(disabled value=last_name)
+    div.foo
+        span Имя в чате
+        input.profile__field(disabled value=display_name)
+    div.foo
+        span Телефон
+        input.profile__field(disabled value=phone)
+
+block profile_footer
+    a(href="profile_change_data.pug") Изменить данные
+    a(href="profile_change_password.pug") Изменить пароль
+    a(href="index.pug") Выйти

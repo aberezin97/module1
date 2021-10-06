@@ -16,8 +16,8 @@ block content
                     <i class="fas fa-cog fa-2x"></i>
                 input.leftpanel__searchfield(type="search" placeholder="Поиск...")
             .leftpanel__chats
-                - let foo1 = 0;
-                while foo1 < 50
+                - let bar = 0;
+                while bar < 50
                     +chatbutton({
                         name: 'Alexander Berezin',
                         message: 'Hello world!...',
@@ -32,7 +32,7 @@ block content
                         count: '99',
                         image: './images/img_avatar2.png'
                     })
-                    - foo1++;
+                    - bar++;
         .rightpanel
             .topbar
                 .topbar__leftside
@@ -40,12 +40,22 @@ block content
                     p= status
                 .topbar__rightside
                     div.dropdown
-                        button.add_del_user.dropdown__dropbtn
+                        button.dropdown__open-button
                             <i class="fas fa-ellipsis-v fa-2x"></i>
                         div.dropdown__content
-                            a(href="#") Добавить пользователя
-                            a(href="#") Удалить пользователя
-            .rightpanel__conversation
+                            include components/chat/add_user_modal.pug
+                            button.dropdown__button(id="add_user_button").
+                                #[i(class="fas fa-user-plus")]
+                                Добавить пользователя
+                            include components/chat/del_user_modal.pug
+                            button.dropdown__button(id="del_user_button").
+                                #[i(class="fas fa-user-minus")]
+                                Удалить пользователя
+                            include components/chat/del_chat_modal.pug
+                            button.dropdown__button(id="del_chat_button").
+                                #[i(class="fas fa-trash")]
+                                Удалить чат              
+            .conversation
                 -let foo = 0;
                 while foo < 50
                     +sentMessage({
@@ -57,20 +67,23 @@ block content
                         time: 'Yesterday at 6:00 pm'
                     })
                     - foo++;
-            .rightpanel__replybar
+            .replybar
                 div.dropup
-                    button.attach.dropup__dropbtn
+                    button.dropup__open-button
                         i(class="fas fa-paperclip fa-2x")
                     div.dropup__content
-                        a(href="#")
-                            i(class="fas fa-photo-video") 
-                        a(href="#")
-                            i(class="far fa-file")
-                        a(href="#")
-                            i(class="fas fa-location-arrow")
-                input.message(type="text" name="message" placeholder="Сообщение...")
-                button.send
-                        i(class="fas fa-paper-plane fa-2x")
-                
+                        button.dropup__button(id="attach_photo_video_button").
+                            #[i(class="fas fa-photo-video")]
+                            Фото или видео
+                        button.dropup__button(id="attach_file_button").
+                            #[i(class="far fa-file")]
+                            Файл
+                        button.dropup__button(id="attach_geolocation_button").
+                            #[i(class="fas fa-location-arrow")]
+                            Геолокация
+                input.replybar__message(type="text" name="message" placeholder="Сообщение...")
+                button.replybar__send-button
+                    i(class="fas fa-paper-plane fa-2x")
+
 block script
     script(src="./scripts/chat.js" type="module")

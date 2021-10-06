@@ -1,0 +1,17 @@
+extends page.pug
+
+block content
+    .profile
+        .linkback
+            a(href=back_url)
+                i(class="fas fa-arrow-circle-left fa-2x")
+        .profile__content
+            .profile__header
+                block profile_header
+            .profile__body
+                block profile_body
+            .profile__footer
+                block profile_footer
+
+block script
+    script(src="./scripts/profile.js" type="module") 

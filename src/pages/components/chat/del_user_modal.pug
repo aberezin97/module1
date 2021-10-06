@@ -1,0 +1,11 @@
+extends ../../layouts/modal.pug
+
+block variables
+    - id = "del_user_modal"
+
+block header
+    h3 Удалить пользователя
+block body
+    input.input-field(placeholder="Имя пользователя")
+block footer
+    button.btn.btn-red Удалить

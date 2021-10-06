@@ -1,0 +1,12 @@
+extends ../../layouts/modal.pug
+
+block variables
+    - id = "change_avatar_modal"
+
+block header
+    h3 Загрузите файл
+block body
+    input(class="file" name="avatar" id="avatar" type="file")
+    label(for="avatar") Выберите файл на компьютере
+block footer
+    button.btn.btn-blue Поменять

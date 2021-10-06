@@ -2,19 +2,9 @@ import { validateEmail } from "../../scripts/utils";
 
 const email = document.getElementsByName('email')[0];
 const login = document.getElementsByName('login')[0];
-const firstName = document.getElementsByTagName('first_name')[0];
-const secondName = document.getElementsByTagName('second_name')[0];
-const phone = document.getElementsByTagName('phone')[0];
-const password = document.getElementsByTagName('password')[0];
-const password_confirmation = document.getElementsByTagName('password_confirmation')[0];
 
 let isEmailCorrect = false;
 let isLoginCorrect = false;
-let isFirstNameCorrect = false;
-let isSecondNameCorrect = false;
-let isPhoneCorrect = false;
-let isPasswordCorrect = false;
-let isPasswordConfirmationCorrect = false;
 
 // Проверка почты
 email.addEventListener('input', (e) => {
@@ -46,31 +36,9 @@ login.addEventListener('input', (e) => {
     }
 });
 
-// Проверка имени
-firstName.addEventListener('input', (e) => {
-
-});
-
-// Проверка фамилии
-secondName.addEventListener('input', (e) => {
-
-});
-
-// Проверка телефона
-phone.addEventListener('input', (e) => {
-
-});
-
-// Проверка пароля
-password.addEventListener('input', (e) => {
-
-});
-
-// Проверка подтверждения пароля
-password_confirmation.addEventListener('input', (e) => {
-
-});
 
 const handleSignup = () => {
-
+    if (isEmailCorrect && isLoginCorrect) {
+        
+    }
 }
