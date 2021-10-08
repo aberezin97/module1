@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "parcel ./src/pages/index.pug",
+    "dev": "parcel ./src/pages/index.pug --port 3000",
     "build": "parcel build ./src/pages/index.pug",
-    "start": "node ./express.js"
+    "start": "node ./app.js"
   },
   "repository": {
     "type": "git",

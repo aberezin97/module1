@@ -1,5 +1,11 @@
-Netlify: https://cranky-blackwell-1b0f56.netlify.app/
+# О проекте
+Мессенджер для общения
 
-Dev: npm run dev
-Build: npm run build
-Express: npm run start
+# Страница онлайн
+[Netlify](https://cranky-blackwell-1b0f56.netlify.app/)
+
+# Установка и запуск
+
+ - `npm run dev` - Запуск в режиме разработки
+ - `npm run build` - Собрать проект
+ - `npm run start` - Запустить express сервер
