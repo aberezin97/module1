@@ -1,14 +1,8 @@
-extends layouts/page.pug
+extends layouts/error_page.pug
 
 block variables
     - let title = "Страница не найдена"
-
-block content
-    div.centerwrapper.centerwrapper-transparent
-        div.centerwrapper__header
-            h2 404
-        div.centerwrapper__content
-            p Не туда попали
-        div.centerwrapper__footer
-            div
-                a(href="chat.pug") Назад к чатам
+    - let errorCode = "404"
+    - let errorExplanation = "Не туда попали"
+    - let errorLink = "chat.pug"
+    - let errorLinkText = "Назад к чатам"

@@ -4,11 +4,11 @@ block variables
     - let title = "Изменить данные"
     - let login = "alex"
     - let email = "alex@foo.bar"
-    - let first_name = "Александр"
-    - let last_name = "Березин"
-    - let display_name = "Alex"
+    - let firstName = "Александр"
+    - let lastName = "Березин"
+    - let displayName = "Alex"
     - let phone = "+7 (888) 123-45-67"
-    - let back_url = "profile.pug"
+    - let backUrl = "profile.pug"
 
 block profile_header
     include components/profile/change_avatar_modal.pug
@@ -16,24 +16,24 @@ block profile_header
         span Изменить аватар
 
 block profile_body
-    div.foo
+    .field-wrapper 
         span Почта
         input.profile__field(value=email)
-    div.foo
+    .field-wrapper 
         span Логин
         input.profile__field(value=login)
-    div.foo
+    .field-wrapper 
         span Имя
-        input.profile__field(value=first_name)
-    div.foo
+        input.profile__field(value=firstName)
+    .field-wrapper 
         span Фамилия
-        input.profile__field(value=last_name)
-    div.foo
+        input.profile__field(value=lastName)
+    .field-wrapper 
         span Имя в чате
-        input.profile__field(value=display_name)
-    div.foo
+        input.profile__field(value=displayName)
+    .field-wrapper 
         span Телефон
         input.profile__field(value=phone)
 
 block profile_footer
-    button.btn.btn-blue Сохранить
+    button.button.button_blue Сохранить

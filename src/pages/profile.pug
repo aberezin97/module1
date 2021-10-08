@@ -4,33 +4,33 @@ block variables
     - let title = "Профиль"
     - let login = "alex"
     - let email = "alex@foo.bar"
-    - let first_name = "Александр"
-    - let last_name = "Березин"
-    - let display_name = "Alex"
+    - let firstName = "Александр"
+    - let lastName = "Березин"
+    - let displayName = "Alex"
     - let phone = "+7 (888) 123-45-67"
-    - let back_url = "chat.pug"
+    - let backUrl = "chat.pug"
 
 block profile_header
     .profile__avatar
-    p.profile__login= display_name
+    p.profile__login= displayName
 
 block profile_body
-    div.foo
+    .field-wrapper
         span Почта
         input.profile__field(disabled value=email)
-    div.foo
+    .field-wrapper
         span Логин
         input.profile__field(disabled value=login)
-    div.foo
+    .field-wrapper
         span Имя
-        input.profile__field(disabled value=first_name)
-    div.foo
+        input.profile__field(disabled value=firstName)
+    .field-wrapper
         span Фамилия
-        input.profile__field(disabled value=last_name)
-    div.foo
+        input.profile__field(disabled value=lastName)
+    .field-wrapper
         span Имя в чате
-        input.profile__field(disabled value=display_name)
-    div.foo
+        input.profile__field(disabled value=displayName)
+    .field-wrapper
         span Телефон
         input.profile__field(disabled value=phone)
 

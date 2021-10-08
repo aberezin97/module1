@@ -1,16 +1,16 @@
-const element = document.getElementById('avatar_change_div');
-const modal = document.getElementById('change_avatar_modal');
+const changeAvatarButton = document.getElementById('avatar_change_div');
+const changeAvatarModal = document.getElementById('change_avatar_modal');
 
-element.onclick = () => {
-    modal.classList.toggle('modal_show');
-}
+changeAvatarButton.addEventListener('click', (event) => {
+    changeAvatarModal.classList.toggle('modal_show');
+});
 
-const inputs = document.querySelectorAll('.file');
-for (let i = 0; i < inputs.length; i++) {
-    let label = inputs[i].nextElementSibling;
+const fileInputs = document.getElementsByClassName('file-input');
+for (let i = 0; i < fileInputs.length; i++) {
+    let label = fileInputs[i].nextElementSibling;
 
-    inputs[i].addEventListener('change', (e) => {
-        let fileName = e.target.value;
+    fileInputs[i].addEventListener('change', (event) => {
+        let fileName = event.target.value;
         if (fileName) {
             label.innerHTML = fileName;
         } else {

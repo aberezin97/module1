@@ -1,14 +1,8 @@
-extends layouts/page.pug
+extends layouts/error_page.pug
 
 block variables
     - let title = "Ошибка сервера"
-
-block content
-    div.centerwrapper.centerwrapper-transparent
-        div.centerwrapper__header
-            h2 500
-        div.centerwrapper__content
-            p Мы уже фиксим
-        div.centerwrapper__footer
-            div
-                a(href="chat.pug") Назад к чатам
+    - let errorCode = "500"
+    - let errorExplanation = "Мы уже фиксим"
+    - let errorLink = "chat.pug"
+    - let errorLinkText = "Назад к чатам"

@@ -4,17 +4,14 @@ block variables
     - let title = "Авторизация"
 
 block content
-    div.centerwrapper.centerwrapper-shadowed
-        div.centerwrapper__header
-            h2 Вход
-        div.centerwrapper__content
-            form(action="#", method="post")
-                input.input-field(type="text" name="login" placeholder="Логин")
-                input.input-field(type="password" name="password" placeholder="Пароль")
-        div.centerwrapper__footer
-            button.btn.btn-blue(onclick="handleSignin()" disabled) Войти
-            div
+    .center-wrapper
+        .enter-form
+            .enter-form__header
+                h1 Вход
+            .enter-form__body
+                form(action="#" method="post")
+                    input.text-input(type="text" name="login" id="login" placeholder="Логин")
+                    input.text-input(type="password" name="password" id="password" placeholder="Пароль")
+            .enter-form__footer
+                button.button.button_blue Войти
                 a(href="signup.pug") Нет аккаунта?
-
-block script
-    script(src="./scripts/signin.js")

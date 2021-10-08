@@ -18,14 +18,14 @@ block content
             .leftpanel__chats
                 - let bar = 0;
                 while bar < 50
-                    +chatbutton({
+                    +chatButton({
                         name: 'Alexander Berezin',
                         message: 'Hello world!...',
                         date: 'Now',
                         count: '1',
                         image: './images/img_avatar.png'
                     })
-                    +chatbutton({
+                    +chatButton({
                         name: 'Daniel Berezin',
                         message: 'Hello world!...',
                         date: '12:00',
@@ -39,10 +39,10 @@ block content
                     p= name
                     p= status
                 .topbar__rightside
-                    div.dropdown
+                    .dropdown
                         button.dropdown__open-button
                             <i class="fas fa-ellipsis-v fa-2x"></i>
-                        div.dropdown__content
+                        .dropdown__content
                             include components/chat/add_user_modal.pug
                             button.dropdown__button(id="add_user_button").
                                 #[i(class="fas fa-user-plus")]
@@ -68,10 +68,10 @@ block content
                     })
                     - foo++;
             .replybar
-                div.dropup
+                .dropup
                     button.dropup__open-button
                         i(class="fas fa-paperclip fa-2x")
-                    div.dropup__content
+                    .dropup__content
                         button.dropup__button(id="attach_photo_video_button").
                             #[i(class="fas fa-photo-video")]
                             Фото или видео

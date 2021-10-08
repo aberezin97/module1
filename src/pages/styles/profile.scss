@@ -54,11 +54,10 @@
     min-width: 40rem;
     width: 30%;
 
-    .foo {
+    .field-wrapper {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
-
       border-bottom: 0.1rem solid #ddd;
       padding: 0.5rem 0;
 
@@ -102,11 +101,14 @@
     a {
       border-bottom: 1px solid #ddd;
       padding: 0.5rem 0;
+
+      .red {
+          color: red;
+      }
     }
 
     a:last-child {
       border: none;
-      color: red;
     }
   }
 }
