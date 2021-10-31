@@ -6,5 +6,5 @@ const PORT = 3000;
 app.use(express.static('./dist'));
 
 app.listen(PORT, () => {
-    console.log(`Express server started on port ${PORT}`);
+  console.log(`Express server started on port ${PORT}`);
 });

@@ -1,0 +1,112 @@
+.profile {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100vw;
+  height: 100vh;
+
+  &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-basis: 100%;
+  }
+
+  .linkback {
+    width: 5rem;
+    display: flex;
+    background: #eee;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  #avatar_change_div {
+    cursor: pointer;
+  }
+
+  &__avatar {
+    background-color: #ddd;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-top: 4rem;
+  }
+
+  &__login {
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__body {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 40rem;
+    width: 30%;
+
+    .field-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      position: relative;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+
+      span {
+        font-weight: 500;
+        position: absolute;
+      }
+    }
+  }
+
+  input.text-input {
+    text-align: right;
+    height: auto;
+    color: gray;
+    padding: 0.2rem 0;
+    flex: 2;
+
+    &:focus {
+      outline: none;
+      color: #000;
+    }
+
+    &:disabled {
+      background-color: inherit;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 30%;
+    min-width: 40rem;
+
+    &_centered {
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      border-bottom: 1px solid #ddd;
+      padding: 0.5rem 0;
+
+      .red {
+        color: red;
+      }
+    }
+
+    a:last-child {
+      border: none;
+    }
+  }
+}
