@@ -7,15 +7,14 @@
     "web": {
       "engines": {
         "browsers": [
-          "> 1%",
-          "not dead"
+          "defaults"
         ]
       }
     }
   },
   "scripts": {
     "dev": "parcel ./src/index.pug --port 3000",
-    "build": "parcel build ./src/index.pug",
+    "build": "parcel build ./src/index.pug --no-optimize --no-scope-hoist --no-content-hash --no-cache",
     "start": "node ./app.js",
     "eslint": "eslint . --ext .ts --fix",
     "tscript": "tsc",
@@ -33,9 +32,8 @@
   },
   "homepage": "https://github.com/aberezin97/module1#readme",
   "devDependencies": {
-    "@parcel/transformer-image": "2.0.0-rc.0",
-    "@parcel/transformer-pug": "2.0.0-rc.0",
-    "@parcel/transformer-sass": "2.0.0-rc.0",
+    "@parcel/transformer-pug": "2.0.0",
+    "@parcel/transformer-sass": "2.0.0",
     "@types/uuid": "8.3.1",
     "@typescript-eslint/eslint-plugin": "4.29.3",
     "@typescript-eslint/parser": "4.29.3",
@@ -44,19 +42,19 @@
     "eslint-config-airbnb-typescript": "14.0.1",
     "eslint-plugin-import": "2.22.1",
     "express": "4.17.1",
-    "parcel": "2.0.0-rc.0",
+    "parcel": "2.0.0",
+    "sass": "1.43.4",
     "stylelint": "13.13.1",
     "stylelint-config-standard": "22.0.0",
     "stylelint-scss": "3.21.0",
     "ts-node": "10.4.0",
-    "typescript": "4.4.4",
-    "uuid": "8.3.2"
+    "typescript": "4.4.4"
   },
   "engines": {
     "node": ">= 12.0.0"
   },
   "dependencies": {
-    "uuid": "8.3.2",
-    "pug": "3.0.2"
+    "pug": "3.0.2",
+    "uuid": "8.3.2"
   }
 }
