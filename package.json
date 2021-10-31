@@ -2,6 +2,17 @@
   "name": "module1",
   "version": "1.0.0",
   "description": "",
+  "web": "dist/index.html",
+  "targets": {
+    "web": {
+      "engines": {
+        "browsers": [
+          "> 1%",
+          "not dead"
+        ]
+      }
+    }
+  },
   "scripts": {
     "dev": "parcel ./src/index.pug --port 3000",
     "build": "parcel build ./src/index.pug",
@@ -38,13 +49,14 @@
     "stylelint-config-standard": "22.0.0",
     "stylelint-scss": "3.21.0",
     "ts-node": "10.4.0",
-    "typescript": "4.4.4"
+    "typescript": "4.4.4",
+    "uuid": "8.3.2"
   },
   "engines": {
     "node": ">= 12.0.0"
   },
   "dependencies": {
-    "pug": "3.0.2",
-    "uuid": "8.3.2"
+    "uuid": "8.3.2",
+    "pug": "3.0.2"
   }
 }

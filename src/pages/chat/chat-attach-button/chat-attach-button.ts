@@ -26,7 +26,7 @@ class ChatAttachButton extends Block {
       events: {
         click: (e: PointerEvent) => {
           e.stopPropagation();
-          const element: Element | null = document.getElementsByClassName('dropup__content')[0];
+          const element: Element | null = document.getElementById('dropup__content');
           if (element) {
             element.classList.toggle('dropup__content_show');
           }
