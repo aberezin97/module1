@@ -18,8 +18,11 @@ class ProfileBody extends Block {
           id: 'email',
           name: 'email',
           type: 'email',
-          regex: emailRegex,
           value: props.data.email,
+          isValid: true,
+          validate: (value: string): boolean => {
+            return emailRegex.test(value);
+          }
         }),
       }),
       loginField: new ProfileField({
@@ -28,8 +31,11 @@ class ProfileBody extends Block {
           id: 'login',
           name: 'login',
           type: 'text',
-          regex: loginRegex,
           value: props.data.login,
+          isValid: true,
+          validate: (value: string): boolean => {
+            return loginRegex.test(value);
+          }
         }),
       }),
       firstNameField: new ProfileField({
@@ -38,8 +44,11 @@ class ProfileBody extends Block {
           id: 'first_name',
           name: 'first_name',
           type: 'text',
-          regex: nameRegex,
           value: props.data.firstName,
+          isValid: true,
+          validate: (value: string): boolean => {
+            return nameRegex.test(value);
+          }
         }),
       }),
       secondNameField: new ProfileField({
@@ -48,8 +57,11 @@ class ProfileBody extends Block {
           id: 'second_name',
           name: 'second_name',
           type: 'text',
-          regex: nameRegex,
           value: props.data.secondName,
+          isValid: true,
+          validate: (value: string): boolean => {
+            return nameRegex.test(value);
+          }
         }),
       }),
       displayNameField: new ProfileField({
@@ -59,6 +71,10 @@ class ProfileBody extends Block {
           name: 'display_name',
           type: 'text',
           value: props.data.displayName,
+          isValid: true,
+          validate: (value: string): boolean => {
+            return loginRegex.test(value);
+          }
         }),
       }),
       phoneField: new ProfileField({
@@ -67,8 +83,11 @@ class ProfileBody extends Block {
           id: 'phone',
           name: 'phone',
           type: 'text',
-          regex: phoneRegex,
           value: props.data.phone,
+          isValid: true,
+          validate: (value: string): boolean => {
+            return phoneRegex.test(value);
+          }
         }),
       }),
     });

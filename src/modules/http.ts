@@ -62,8 +62,8 @@ class HTTPTransport {
       xhr.onerror = reject;
       xhr.ontimeout = reject;
 
-      const isDataMethod = method === METHODS.GET || method === METHODS.DELETE;
-      if (isDataMethod || !data) {
+      const isNotDataMethod = method === METHODS.GET || method === METHODS.DELETE;
+      if (isNotDataMethod || !data) {
         xhr.send();
       } else {
         xhr.send(data);

@@ -1,6 +1,9 @@
 /* eslint-disable max-len, no-control-regex */
+
+// RFC 5322
 export const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-export const loginRegex = /(?=[-_0-9]*[a-z]){3,20}/;
-export const nameRegex = /((^[A-Z]([-a-z])*[a-z]$)|(^[ЁА-Я]([-ёа-я])*[ёа-я]$))/;
-export const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?!.*[^a-zA-Z0-9@#$^+=])(.{8,40})$/;
-export const phoneRegex = /^[+0-9][0-9]{9,14}$/;
+
+export const loginRegex = /^(?=.*[A-Za-z])[-_A-Za-z\d]{3,20}$/;
+export const passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{8,40}$/;
+export const phoneRegex = /^\+?[0-9]{10,15}$/;
+export const nameRegex = /(^[A-Z][a-z-]*[a-z]$)|(^[А-ЯЁ][а-яё-]*[а-яё]$)/;

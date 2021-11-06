@@ -12,6 +12,18 @@ render('.app', page);
 
 const messages = new Array<SentMessage | ReceivedMessage>();
 const chatButtons = new Array<ChatButton>();
+page.setProps({
+  name: 'Alexander Ivansov',
+});
+page.setProps({
+  name: 'Alexander Ivansovs',
+});
+page.setProps({
+  name: 'Alexander Ivansove',
+});
+page.setProps({
+  name: 'Alexander Ivansova',
+});
 setTimeout(() => {
   chatButtons.push(new ChatButton({
     name: 'Alexander Berezin',

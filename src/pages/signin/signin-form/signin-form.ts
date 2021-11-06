@@ -14,14 +14,18 @@ class SigninForm extends Block {
         id: 'login',
         type: 'text',
         placeholder: 'Логин',
-        regex: loginRegex,
+        validate: (value: string): boolean => {
+          return loginRegex.test(value);
+        }
       }),
       inputPassword: new Input({
         name: 'password',
         id: 'password',
         type: 'password',
         placeholder: 'Пароль',
-        regex: passwordRegex,
+        validate: (value: string): boolean => {
+          return passwordRegex.test(value);
+        }
       }),
     });
   }

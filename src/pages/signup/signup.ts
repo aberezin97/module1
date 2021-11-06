@@ -2,51 +2,50 @@ import Block from '../../modules/block';
 import SignupForm from './signup-form/signup-form';
 import Button from '../../components/button/button';
 import template from './template';
+import { getDataFromInputs, isAllInputsValid } from '../../modules/misc';
 
 const pug = require('pug');
 
 class SignupPage extends Block {
   constructor(props: Object) {
+    const signUpButton = new Button({
+      text: 'Зарегистрироваться',
+      type: Button.Type.Blue,
+      isDisabled: true,
+      events: {
+        click: (e: PointerEvent) => {
+          e.stopPropagation();
+          console.log(getDataFromInputs([
+            'email',
+            'login',
+            'first_name',
+            'second_name',
+            'phone',
+            'password',
+            'password_confirmation',
+          ]));
+        },
+      },
+    });
     super('div', {
       ...props,
-      form: new SignupForm({}),
-      signUpButton: new Button({
-        text: 'Зарегистрироваться',
-        type: Button.Type.Blue,
+      signUpButton,
+      form: new SignupForm({
         events: {
-          click: (e: PointerEvent) => {
-            e.stopPropagation();
-            const data: Record<string, any> = {};
-            let isValid = true;
-            const check = [
-              'email',
-              'login',
-              'first_name',
-              'second_name',
-              'phone',
-              'password',
-              'password_confirmation',
-            ];
-            check.forEach((id) => {
-              const element: HTMLInputElement | null = document.getElementById(id) as HTMLInputElement;
-              if (element) {
-                data[id] = element.value;
-                element.dispatchEvent(new Event('focus'));
-                element.dispatchEvent(new Event('blur'));
-                if (element.dataset.isValid && element.dataset.isValid === 'true') {
-                  return;
-                }
-              }
-              isValid = false;
-            });
-            if (isValid) {
-              console.log(data);
+          'focusout': (e: Event) => {
+            const target = e.currentTarget as HTMLFormElement;
+            if (isAllInputsValid()) {
+              signUpButton.setProps({'isDisabled': false});
+            } else {
+              signUpButton.setProps({'isDisabled': true});
             }
-          },
-        },
+          }
+        }
       }),
     });
   }
+
+  
 
   render() {
     const fn = pug.compile(template, {});

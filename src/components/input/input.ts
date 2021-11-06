@@ -8,11 +8,16 @@ class Input extends Block {
     super('div', {
       isDisabled: false,
       value: '',
+      validate: (value: string): boolean => {
+        return true;
+      },
       ...props,
       events: {
+        events: props.events || {},
         focus: (e: FocusEvent) => {
           if (e.target) {
             const target: HTMLInputElement = e.target as HTMLInputElement;
+            target.dataset.isValid = 'false';
             target.classList.remove('text-input_active');
             target.classList.remove('text-input_wrong');
           }
@@ -20,20 +25,8 @@ class Input extends Block {
         blur: (e: FocusEvent) => {
           if (e.target) {
             const target: HTMLInputElement = e.target as HTMLInputElement;
-            target.dataset.isValid = 'false';
             if (target.value.length > 0) {
-              const re: RegExp | null = props.regex as RegExp;
-              let isConfirmed = true;
-              if (props.confirmation) {
-                for (let i = 0; i < props.confirmation.length; i += 1) {
-                  const element = document.getElementById(props.confirmation[i]) as HTMLInputElement;
-                  if (element.value !== target.value) {
-                    isConfirmed = false;
-                    break;
-                  }
-                }
-              }
-              if (!re || (re.test(target.value) && isConfirmed)) {
+              if (this.props.validate(target.value)) {
                 target.classList.add('text-input_active');
                 target.dataset.isValid = 'true';
               } else {
@@ -44,6 +37,9 @@ class Input extends Block {
         },
       },
     });
+    if (props.isValid) {
+      this.element.dataset.isValid = 'true';
+    }
   }
 
   render() {

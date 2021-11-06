@@ -17,7 +17,10 @@ class ProfileBody extends Block {
           name: 'oldPassword',
           type: 'password',
           placeholder: '...',
-          regex: passwordRegex,
+          isValid: false,
+          validate: (value: string): boolean => {
+            return passwordRegex.test(value);
+          }
         }),
       }),
       newPasswordField: new ProfileField({
@@ -27,7 +30,10 @@ class ProfileBody extends Block {
           name: 'newPassword',
           type: 'password',
           placeholder: '...',
-          regex: passwordRegex,
+          isValid: false,
+          validate: (value: string): boolean => {
+            return passwordRegex.test(value);
+          }
         }),
       }),
       newPasswordConfirmationField: new ProfileField({
@@ -37,10 +43,11 @@ class ProfileBody extends Block {
           name: 'newPasswordConfirmation',
           type: 'password',
           placeholder: '...',
-          regex: passwordRegex,
-          confirmation: [
-            'new_password',
-          ],
+          isValid: false,
+          validate: (value: string): boolean => {
+            const foo = document.getElementById('new_password') as HTMLInputElement;
+            return passwordRegex.test(value) && value === foo.value;
+          }
         }),
       }),
     });

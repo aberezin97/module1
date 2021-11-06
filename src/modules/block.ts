@@ -20,13 +20,12 @@ class Block {
     const eventBus = new EventBus();
 
     this._id = makeUUID();
-    this._wasRendered = false;
     this._meta = {
       tagName,
       props,
     };
 
-    this.props = this._makePropsProxy({ ...props, __id: this._id });
+    this.props = this._makePropsProxy(props);
     this.eventBus = () => eventBus;
     this._registerEvents(eventBus);
     eventBus.emit(EVENTS.INIT);
@@ -50,18 +49,18 @@ class Block {
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   componentDidMount(oldProps = {}) {
-    if (oldProps) return true;
     return true;
   }
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   componentDidUpdate(oldProps: Object, newProps: Object) {
-    if (oldProps && newProps) return true;
     return true;
   }
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
-  render() {}
+  render(): string {
+    return '';
+  }
 
   setProps = (nextProps: Object) => {
     if (!nextProps) {
@@ -89,11 +88,9 @@ class Block {
 
   private _meta: { tagName: string; props: {} };
 
-  private _element: any;
+  private _element: HTMLElement;
 
   private _id: string;
-
-  private _wasRendered: boolean;
 
   private _makePropsProxy(props: {}): Object {
     const self = this;
@@ -140,46 +137,44 @@ class Block {
     }
   }
 
-  private _addEvents() {
-    const { events = {} } = this.props;
+  private _addEvents(events: Record<string,any>) {
     Object.keys(events).forEach((eventName) => {
-      this._element.addEventListener(eventName, events[eventName]);
+      if (typeof events[eventName] === 'object') this._addEvents(events[eventName]);
+      else this._element.addEventListener(eventName, events[eventName]);
     });
   }
 
-  private _delEvents() {
-    const { events = {} } = this.props;
+  private _delEvents(events: Record<string,any>) {
     Object.keys(events).forEach((eventName) => {
-      this._element.removeEventListener(eventName, events[eventName]);
+      if (typeof events[eventName] === 'object') this._delEvents(events[eventName]);
+      else this._element.removeEventListener(eventName, events[eventName]);
     });
   }
 
   private _render() {
     const block = this.render();
-    this._delEvents();
-    this._element.innerHTML = block;
-    if (!this._wasRendered) {
-      this._element = this._element.firstChild;
-      this._element.setAttribute('data-id', this._id);
-      this._wasRendered = true;
-    }
-    this._addEvents();
+    this._delEvents(this.props.events || {});
+    let temp = document.createElement('template');
+    temp.innerHTML = block;
+    this._element = temp.content.firstChild;
+    this._element.setAttribute('data-id', this._id);
+    document.querySelector(`[data-id='${this.id}']`)?.replaceWith(this._element);
+    this._addEvents(this.props.events || {});
     this.eventBus().emit(EVENTS.FLOW_CHILDREN);
   }
 
   private _children() {
     Object.keys(this.props).forEach((propName) => {
       if (this.props[propName] instanceof Block) {
-        const id = this.props[propName].props.__id;
+        const id = this.props[propName].id;
         const element = this._element.querySelector(`[data-id='${id}']`);
-        const { parentElement } = element;
+        let { parentElement } = element;
         parentElement.replaceChild(this.props[propName].element, element);
       }
     });
   }
 
   private _createDocumentElement(tagName: string) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
     const element = document.createElement(tagName);
     element.setAttribute('data-id', this._id);
     return element;

@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "parcel ./src/index.pug --port 3000",
-    "build": "parcel build ./src/index.pug --no-optimize --no-scope-hoist --no-content-hash --no-cache",
+    "build": "parcel build ./src/index.pug --no-scope-hoist",
     "start": "node ./app.js",
     "eslint": "eslint . --ext .ts --fix",
     "tscript": "tsc",

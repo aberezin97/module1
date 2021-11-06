@@ -12,7 +12,10 @@ class Button extends Block {
   static Type = Type;
 
   constructor(props: Record<string, any>) {
-    super('div', props);
+    super('div', {
+      isDisabled: false,
+      ...props,
+    });
   }
 
   render() {

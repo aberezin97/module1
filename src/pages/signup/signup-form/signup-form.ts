@@ -16,50 +16,65 @@ class SignupForm extends Block {
         id: 'email',
         type: 'email',
         placeholder: 'Почта',
-        regex: emailRegex,
+        validate: (value: string): boolean => {
+          return emailRegex.test(value);
+        }
       }),
       inputLogin: new Input({
         name: 'login',
         id: 'login',
         type: 'text',
         placeholder: 'Логин',
-        regex: loginRegex,
+        validate: (value: string): boolean => {
+          return loginRegex.test(value);
+        }
       }),
       inputFirstname: new Input({
         name: 'first_name',
         id: 'first_name',
         type: 'text',
         placeholder: 'Имя',
-        regex: nameRegex,
+        validate: (value: string): boolean => {
+          return nameRegex.test(value);
+        }
       }),
       inputSecondname: new Input({
         name: 'second_name',
         id: 'second_name',
         type: 'text',
         placeholder: 'Фамилия',
-        regex: nameRegex,
+        validate: (value: string): boolean => {
+          return nameRegex.test(value);
+        }
       }),
       inputPhone: new Input({
         name: 'phone',
         id: 'phone',
         type: 'text',
         placeholder: 'Телефон',
-        regex: phoneRegex,
+        validate: (value: string): boolean => {
+          return phoneRegex.test(value);
+        }
       }),
       inputPassword: new Input({
         name: 'password',
         id: 'password',
         type: 'password',
         placeholder: 'Пароль',
-        regex: passwordRegex,
+        validate: (value: string): boolean => {
+          return passwordRegex.test(value);
+        }
       }),
       inputPasswordConfirmation: new Input({
         name: 'password_confirmation',
         id: 'password_confirmation',
         type: 'password',
         placeholder: 'Пароль (ещё раз)',
-        regex: passwordRegex,
-        confirmation: ['password'],
+        validate: (value: string): boolean => {
+          const el: HTMLInputElement | null = document.getElementById('password') as HTMLInputElement;
+          const foo = el ? el.value : '';
+          return passwordRegex.test(value) && value === foo;
+        },
       }),
     });
   }
