@@ -13,7 +13,7 @@ const saveButton = new Button({
   events: {
     click: (e: PointerEvent) => {
       e.stopPropagation();
-      console.log(getDataFromInputs( [
+      console.log(getDataFromInputs([
         'old_password',
         'new_password',
         'new_password_confirmation',
@@ -26,15 +26,14 @@ const page = new ProfilePage({
   backUrl: 'profile.html',
   body: new ProfileBody({
     events: {
-      'focusout': (e) => {
-        console.log(e);
+      focusout: (e: FocusEvent) => {
         if (isAllInputsValid()) {
-          saveButton.setProps({isDisabled: false});
+          saveButton.setProps({ isDisabled: false });
         } else {
-          saveButton.setProps({isDisabled: true});
+          saveButton.setProps({ isDisabled: true });
         }
-      }
-    }
+      },
+    },
   }),
   header: new ProfileHeader({}),
   footer: new ProfileFooter({

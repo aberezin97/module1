@@ -137,14 +137,14 @@ class Block {
     }
   }
 
-  private _addEvents(events: Record<string,any>) {
+  private _addEvents(events: Record<string, any>) {
     Object.keys(events).forEach((eventName) => {
       if (typeof events[eventName] === 'object') this._addEvents(events[eventName]);
       else this._element.addEventListener(eventName, events[eventName]);
     });
   }
 
-  private _delEvents(events: Record<string,any>) {
+  private _delEvents(events: Record<string, any>) {
     Object.keys(events).forEach((eventName) => {
       if (typeof events[eventName] === 'object') this._delEvents(events[eventName]);
       else this._element.removeEventListener(eventName, events[eventName]);
@@ -154,9 +154,9 @@ class Block {
   private _render() {
     const block = this.render();
     this._delEvents(this.props.events || {});
-    let temp = document.createElement('template');
+    const temp = document.createElement('template');
     temp.innerHTML = block;
-    this._element = temp.content.firstChild;
+    this._element = temp.content.firstChild as HTMLElement;
     this._element.setAttribute('data-id', this._id);
     document.querySelector(`[data-id='${this.id}']`)?.replaceWith(this._element);
     this._addEvents(this.props.events || {});
@@ -166,10 +166,14 @@ class Block {
   private _children() {
     Object.keys(this.props).forEach((propName) => {
       if (this.props[propName] instanceof Block) {
-        const id = this.props[propName].id;
+        const { id } = this.props[propName];
         const element = this._element.querySelector(`[data-id='${id}']`);
-        let { parentElement } = element;
-        parentElement.replaceChild(this.props[propName].element, element);
+        if (element) {
+          const { parentElement } = element;
+          if (parentElement) {
+            parentElement.replaceChild(this.props[propName].element, element);
+          }
+        }
       }
     });
   }

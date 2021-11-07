@@ -69,7 +69,10 @@ class HTTPTransport {
         xhr.send(data);
       }
 
-      setTimeout(() => reject(), timeout);
+      setTimeout(() => {
+        xhr.abort();
+        reject();
+      }, timeout);
     });
   };
 }

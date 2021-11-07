@@ -32,20 +32,17 @@ class SignupPage extends Block {
       signUpButton,
       form: new SignupForm({
         events: {
-          'focusout': (e: Event) => {
-            const target = e.currentTarget as HTMLFormElement;
+          focusout: (e: Event) => {
             if (isAllInputsValid()) {
-              signUpButton.setProps({'isDisabled': false});
+              signUpButton.setProps({ isDisabled: false });
             } else {
-              signUpButton.setProps({'isDisabled': true});
+              signUpButton.setProps({ isDisabled: true });
             }
-          }
-        }
+          },
+        },
       }),
     });
   }
-
-  
 
   render() {
     const fn = pug.compile(template, {});

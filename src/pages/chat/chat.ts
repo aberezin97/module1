@@ -25,7 +25,7 @@ class ChatPage extends Block {
     const fn = pug.compile(template, {});
     return fn({
       ...this.props,
-      messages: this.props.messages.map((message: ReceivedMessage | SentMessage) => message).join(''),
+      messages: (this.props.messages as string[]).join(''),
     });
   }
 }

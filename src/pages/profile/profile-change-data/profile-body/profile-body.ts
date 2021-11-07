@@ -20,9 +20,7 @@ class ProfileBody extends Block {
           type: 'email',
           value: props.data.email,
           isValid: true,
-          validate: (value: string): boolean => {
-            return emailRegex.test(value);
-          }
+          validate: (value: string): boolean => emailRegex.test(value),
         }),
       }),
       loginField: new ProfileField({
@@ -33,9 +31,7 @@ class ProfileBody extends Block {
           type: 'text',
           value: props.data.login,
           isValid: true,
-          validate: (value: string): boolean => {
-            return loginRegex.test(value);
-          }
+          validate: (value: string): boolean => loginRegex.test(value),
         }),
       }),
       firstNameField: new ProfileField({
@@ -46,9 +42,7 @@ class ProfileBody extends Block {
           type: 'text',
           value: props.data.firstName,
           isValid: true,
-          validate: (value: string): boolean => {
-            return nameRegex.test(value);
-          }
+          validate: (value: string): boolean => nameRegex.test(value),
         }),
       }),
       secondNameField: new ProfileField({
@@ -59,9 +53,7 @@ class ProfileBody extends Block {
           type: 'text',
           value: props.data.secondName,
           isValid: true,
-          validate: (value: string): boolean => {
-            return nameRegex.test(value);
-          }
+          validate: (value: string): boolean => nameRegex.test(value),
         }),
       }),
       displayNameField: new ProfileField({
@@ -72,9 +64,7 @@ class ProfileBody extends Block {
           type: 'text',
           value: props.data.displayName,
           isValid: true,
-          validate: (value: string): boolean => {
-            return loginRegex.test(value);
-          }
+          validate: (value: string): boolean => loginRegex.test(value),
         }),
       }),
       phoneField: new ProfileField({
@@ -85,9 +75,7 @@ class ProfileBody extends Block {
           type: 'text',
           value: props.data.phone,
           isValid: true,
-          validate: (value: string): boolean => {
-            return phoneRegex.test(value);
-          }
+          validate: (value: string): boolean => phoneRegex.test(value),
         }),
       }),
     });

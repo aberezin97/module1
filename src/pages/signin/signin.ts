@@ -13,7 +13,7 @@ class SigninPage extends Block {
       type: Button.Type.Blue,
       isDisabled: true,
       events: {
-        'click': (e: PointerEvent) => {
+        click: (e: PointerEvent) => {
           e.stopPropagation();
           console.log(getDataFromInputs([
             'login',
@@ -27,15 +27,14 @@ class SigninPage extends Block {
       signInButton,
       form: new SigninForm({
         events: {
-          'focusout': (e: Event) => {
-            const target = e.currentTarget as HTMLFormElement;
+          focusout: (e: Event) => {
             if (isAllInputsValid()) {
-              signInButton.setProps({'isDisabled': false});
+              signInButton.setProps({ isDisabled: false });
             } else {
-              signInButton.setProps({'isDisabled': true});
+              signInButton.setProps({ isDisabled: true });
             }
-          }
-        }
+          },
+        },
       }),
     });
   }

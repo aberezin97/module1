@@ -37,17 +37,17 @@ const page = new ProfilePage({
       phone: '+1234567890',
     },
     events: {
-      'focusout': (e) => {
+      focusout: (e: FocusEvent) => {
         if (isAllInputsValid()) {
-          saveButton.setProps({isDisabled: false});
+          saveButton.setProps({ isDisabled: false });
         } else {
-          saveButton.setProps({isDisabled: true});
+          saveButton.setProps({ isDisabled: true });
         }
-      }
-    }
+      },
+    },
   }),
   footer: new ProfileFooter({
-    saveButton
+    saveButton,
   }),
   header: new ProfileHeader({}),
 });

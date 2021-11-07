@@ -8,9 +8,7 @@ class Input extends Block {
     super('div', {
       isDisabled: false,
       value: '',
-      validate: (value: string): boolean => {
-        return true;
-      },
+      validate: (value: string): boolean => true,
       ...props,
       events: {
         events: props.events || {},
