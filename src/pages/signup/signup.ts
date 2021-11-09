@@ -2,7 +2,7 @@ import Block from '../../modules/block';
 import SignupForm from './signup-form/signup-form';
 import Button from '../../components/button/button';
 import template from './template';
-import { getDataFromInputs, isAllInputsValid } from '../../modules/misc';
+import { getDataFromInputs, isAllInputsValid } from '../../modules/forms';
 
 const pug = require('pug');
 
