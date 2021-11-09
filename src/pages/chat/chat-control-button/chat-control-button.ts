@@ -91,7 +91,6 @@ class ChatControlButton extends Block {
       events: {
         click: (e: PointerEvent) => {
           e.stopPropagation();
-          console.log('hello');
           const element: Element | null = document.getElementById('dropdown__content');
           if (element) {
             element.classList.toggle('dropdown__content_show');

@@ -4,7 +4,7 @@ import ProfileFooter from './profile-footer/profile-footer';
 import ProfileHeader from './profile-header/profile-header';
 import Button from '../../../components/button/button';
 import render from '../../../modules/render';
-import { getDataFromInputs, isAllInputsValid } from '../../../modules/misc';
+import { getDataFromInputs, isAllInputsValid } from '../../../modules/forms';
 
 const saveButton = new Button({
   text: 'Сохранить',

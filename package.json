@@ -13,7 +13,9 @@
     }
   },
   "scripts": {
+    "predev": "rm -rf dist",
     "dev": "parcel ./src/index.pug --port 3000",
+    "prebuild": "rm -rf dist",
     "build": "parcel build ./src/index.pug --no-scope-hoist",
     "start": "node ./app.js",
     "eslint": "eslint . --ext .ts --fix",
