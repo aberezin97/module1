@@ -41,6 +41,7 @@ class SigninPage extends Block {
 
   render() {
     const fn = pug.compile(template, {});
+    document.title = 'Мессенджер - Авторизация';
     return fn(this.props);
   }
 }

@@ -10,6 +10,7 @@ class Error404Page extends Block {
 
   render() {
     const fn = pug.compile(template, {});
+    document.title = 'Мессенджер - Страница не найдена';
     return fn(this.props);
   }
 }

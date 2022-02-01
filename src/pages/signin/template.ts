@@ -6,7 +6,7 @@ const template = `
         .enter-form__body.
             !{form}
         .enter-form__footer !{signInButton}
-            a(href="signup.html") Нет аккаунта?
+            a(href="/sign-up") Нет аккаунта?
 `;
 
 export default template;

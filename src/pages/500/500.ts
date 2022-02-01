@@ -10,6 +10,7 @@ class Error500Page extends Block {
 
   render() {
     const fn = pug.compile(template, {});
+    document.title = 'Мессенджер - Ошибка сервера';
     return fn(this.props);
   }
 }

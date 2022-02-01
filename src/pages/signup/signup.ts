@@ -46,6 +46,7 @@ class SignupPage extends Block {
 
   render() {
     const fn = pug.compile(template, {});
+    document.title = 'Мессенджер - Регистрация';
     return fn(this.props);
   }
 }

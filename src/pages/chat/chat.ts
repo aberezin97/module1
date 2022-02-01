@@ -23,6 +23,7 @@ class ChatPage extends Block {
 
   render() {
     const fn = pug.compile(template, {});
+    document.title = 'Мессенджер - Чат';
     return fn({
       ...this.props,
       messages: (this.props.messages as string[]).join(''),

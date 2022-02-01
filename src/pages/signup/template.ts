@@ -5,7 +5,7 @@ const template = `
             h1 Регистрация
         .enter-form__body !{form}
         .enter-form__footer !{signUpButton}
-            a(href="signin.html") Войти
+            a(href="/") Войти
 `;
 
 export default template;
