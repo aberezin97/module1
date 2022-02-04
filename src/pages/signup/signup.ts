@@ -3,6 +3,7 @@ import SignupForm from './signup-form/signup-form';
 import Button from '../../components/button/button';
 import template from './template';
 import { getDataFromInputs, isAllInputsValid } from '../../modules/forms';
+import { SignupController } from '../../controllers/signup';
 
 const pug = require('pug');
 
@@ -15,15 +16,29 @@ class SignupPage extends Block {
       events: {
         click: (e: PointerEvent) => {
           e.stopPropagation();
-          console.log(getDataFromInputs([
-            'email',
-            'login',
-            'first_name',
-            'second_name',
-            'phone',
-            'password',
-            'password_confirmation',
-          ]));
+          console.log(
+            getDataFromInputs([
+              'email',
+              'login',
+              'first_name',
+              'second_name',
+              'phone',
+              'password',
+              'password_confirmation',
+            ])
+          );
+          const signupController = new SignupController();
+          signupController.signup(
+            getDataFromInputs([
+              'email',
+              'login',
+              'first_name',
+              'second_name',
+              'phone',
+              'password',
+              'password_confirmation',
+            ])
+          );
         },
       },
     });

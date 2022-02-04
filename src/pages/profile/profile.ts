@@ -1,5 +1,6 @@
 import Block from '../../modules/block';
 import template from './template';
+import { withUser } from '../../modules/connect';
 
 const pug = require('pug');
 
@@ -14,4 +15,4 @@ class ProfilePage extends Block {
   }
 }
 
-export default ProfilePage;
+export default withUser(ProfilePage);

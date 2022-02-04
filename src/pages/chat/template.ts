@@ -3,7 +3,7 @@ const template = `
     .rightpanel
         .topbar
             .topbar__leftside
-                p= name
+                p #{user.first_name} #{user.second_name}
                 p= status
             .topbar__rightside !{controlButton}              
         .conversation !{messages}

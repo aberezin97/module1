@@ -2,7 +2,10 @@ import Block from '../../modules/block';
 import SigninForm from './signin-form/signin-form';
 import Button from '../../components/button/button';
 import template from './template';
+import { withUser } from '../../modules/connect';
 import { getDataFromInputs, isAllInputsValid } from '../../modules/forms';
+import { SigninController } from '../../controllers/signin';
+import UserController from '../../controllers/user';
 
 const pug = require('pug');
 
@@ -15,10 +18,11 @@ class SigninPage extends Block {
       events: {
         click: (e: PointerEvent) => {
           e.stopPropagation();
-          console.log(getDataFromInputs([
-            'login',
-            'password',
-          ]));
+          const userController = new UserController();
+          userController.logout();
+          console.log(getDataFromInputs(['login', 'password']));
+          const signinController = new SigninController();
+          signinController.signin(getDataFromInputs(['login', 'password']));
         },
       },
     });
@@ -46,4 +50,4 @@ class SigninPage extends Block {
   }
 }
 
-export default SigninPage;
+export default withUser(SigninPage);

@@ -5,6 +5,13 @@ enum METHODS {
   DELETE = 'DELETE',
 }
 
+interface RequestOptions {
+  timeout?: number;
+  withCredentials?: boolean;
+  data?: any;
+  headers?: Record<string, any>;
+}
+
 function queryStringify(data: Record<string, any>) {
   let output = '?';
   Object.keys(data).forEach((key) => {
@@ -14,45 +21,50 @@ function queryStringify(data: Record<string, any>) {
 }
 
 class HTTPTransport {
-  get = (url: string, options = { data: {}, timeout: 5000 }) => {
+  public get = (
+    url: string,
+    options: RequestOptions = { withCredentials: false, timeout: 5000 }
+  ) => {
     // eslint-disable-next-line no-param-reassign
-    url += queryStringify(options.data);
-    return this.request(
-      url,
-      { ...options, method: METHODS.GET },
-      options.timeout,
-    );
+    // url += queryStringify(options.data);
+    return this.request(url, METHODS.GET, options);
   };
 
   // PUT, POST, DELETE
-  put = (url: string, options = { timeout: 5000 }) => this.request(
-    url,
-    { ...options, method: METHODS.PUT },
-    options.timeout,
-  );
+  public put = (
+    url: string,
+    options: RequestOptions = { withCredentials: false, timeout: 5000 }
+  ) => this.request(url, METHODS.PUT, options);
 
-  post = (url: string, options = { timeout: 5000 }) => this.request(
-    url,
-    { ...options, method: METHODS.POST },
-    options.timeout,
-  );
+  public post = (
+    url: string,
+    options: RequestOptions = { withCredentials: false, timeout: 5000 }
+  ) => this.request(url, METHODS.POST, options);
 
-  delete = (url: string, options = { timeout: 5000 }) => this.request(
-    url,
-    { ...options, method: METHODS.DELETE },
-    options.timeout,
-  );
+  public delete = (
+    url: string,
+    options: RequestOptions = { withCredentials: false, timeout: 5000 }
+  ) => this.request(url, METHODS.DELETE, options);
 
-  request = (url: string, options: Record<string, any>, timeout: number) => {
-    const { method, data, headers } = options;
+  private request = (url: string, method: METHODS, options: RequestOptions) => {
+    const { data, headers, timeout, withCredentials } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url);
 
-      Object.keys(headers).forEach((key) => {
-        xhr.setRequestHeader(key, headers[key]);
-      });
+      if (timeout) {
+        xhr.timeout = timeout;
+      }
+      if (withCredentials) {
+        xhr.withCredentials = withCredentials;
+      }
+
+      if (headers) {
+        Object.keys(headers).forEach((key) => {
+          xhr.setRequestHeader(key, headers[key]);
+        });
+      }
 
       xhr.onload = () => {
         resolve(xhr);
@@ -62,17 +74,13 @@ class HTTPTransport {
       xhr.onerror = reject;
       xhr.ontimeout = reject;
 
-      const isNotDataMethod = method === METHODS.GET || method === METHODS.DELETE;
+      const isNotDataMethod =
+        method === METHODS.GET || method === METHODS.DELETE;
       if (isNotDataMethod || !data) {
         xhr.send();
       } else {
-        xhr.send(data);
+        xhr.send(data as XMLHttpRequestBodyInit);
       }
-
-      setTimeout(() => {
-        xhr.abort();
-        reject();
-      }, timeout);
     });
   };
 }
