@@ -1,0 +1,51 @@
+.dropup {
+  &__open-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #f8fafc;
+    padding: 1rem;
+    text-align: left;
+
+    &:first-child {
+      border-radius: 0 4px 0 0;
+    }
+
+    &:hover {
+      background-color: darken($color: #f8fafc, $amount: 3%);
+    }
+
+    &:active {
+      background-color: #206bc4;
+      color: #fff;
+    }
+
+    i {
+      width: 1.5rem;
+      text-align: left;
+    }
+  }
+
+  &__content {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 1px);
+    left: 0;
+    // box-shadow: 0 0 0.2rem 0 rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(98, 105, 118, 0.16);
+    border-right: 1px solid rgba(98, 105, 118, 0.16);
+    border-radius: 0;
+    border-top-right-radius: 4px;
+    z-index: 2000;
+
+    &_show {
+      display: block;
+    }
+  }
+}

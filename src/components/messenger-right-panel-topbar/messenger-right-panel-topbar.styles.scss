@@ -1,0 +1,18 @@
+.topbar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(98, 105, 118, 0.16);
+  position: relative;
+  min-height: 60px;
+  padding: 0 15px;
+
+  &__leftside {
+    text-align: left;
+
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import SignupAPI from '../api/signup';
-import store from '../modules/store';
-import { router } from '../pages';
+import store from '../utils/store';
+import router from '../index';
 
 export interface SignupFormModel {
   first_name: string;
@@ -11,7 +11,7 @@ export interface SignupFormModel {
   phone: string;
 }
 
-export class SignupController {
+class SignupController {
   public async signup(data: SignupFormModel) {
     const signupAPI = new SignupAPI(data);
     try {
@@ -26,3 +26,5 @@ export class SignupController {
     }
   }
 }
+
+export default new SignupController();

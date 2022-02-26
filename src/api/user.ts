@@ -1,16 +1,12 @@
-import HTTPTransport from '../modules/http';
-import BaseAPI from '../modules/base-api';
+import HTTPTransport from '../utils/http';
+import BaseAPI from '../utils/base-api';
 
 const http = new HTTPTransport();
 
 class UserAPI extends BaseAPI {
-  constructor() {
-    super();
-  }
-
   request() {
     return http
-      .get(`${this.baseUrl}/api/v2/auth/user`, {
+      .get(`${this.baseUrl}/auth/user`, {
         withCredentials: true,
         headers: {
           'content-type': 'application/json',
@@ -21,7 +17,7 @@ class UserAPI extends BaseAPI {
 
   post() {
     return http
-      .post(`${this.baseUrl}/api/v2/auth/logout`, {
+      .post(`${this.baseUrl}/auth/logout`, {
         withCredentials: true,
         headers: {
           'content-type': 'application/json',

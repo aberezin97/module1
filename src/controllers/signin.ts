@@ -1,13 +1,13 @@
 import SigninAPI from '../api/signin';
-import store from '../modules/store';
-import { router } from '../pages/';
+import store from '../utils/store';
+import router from '../index';
 
 export interface SigninFormModel {
   login: string;
   password: string;
 }
 
-export class SigninController {
+class SigninController {
   public async signin(data: SigninFormModel) {
     const signinAPI = new SigninAPI(data);
     try {
@@ -22,3 +22,5 @@ export class SigninController {
     }
   }
 }
+
+export default new SigninController();

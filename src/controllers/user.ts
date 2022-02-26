@@ -1,12 +1,27 @@
 import UserAPI from '../api/user';
-import store from '../modules/store';
-import { router } from '../pages';
+import store from '../utils/store';
+import router from '../index';
 
 class UserController {
+  public async isAuthenticated() {
+    const userAPI = new UserAPI();
+    try {
+      const response = await userAPI.request();
+      if (response.status === 200) {
+        console.log(response);
+        const data = JSON.parse(response.response);
+        router.go('/messenger');
+        store.set('user', data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   public async getUser() {
     const userAPI = new UserAPI();
     try {
-      const response = (await userAPI.request()) as XMLHttpRequest;
+      const response = await userAPI.request();
       if (response.status === 200) {
         console.log(response);
         const data = JSON.parse(response.response);
@@ -28,9 +43,9 @@ class UserController {
       const response = (await userAPI.post()) as XMLHttpRequest;
       if (response.status === 200) {
         console.log(response);
+        router.go('/');
       } else {
         console.log(response);
-        router.go('/');
         throw new Error(response.responseText);
       }
     } catch (error) {
@@ -39,4 +54,4 @@ class UserController {
   }
 }
 
-export default UserController;
+export default new UserController();

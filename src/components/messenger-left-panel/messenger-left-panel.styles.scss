@@ -1,0 +1,21 @@
+$color-active: #3369f3;
+$color-background: #fff;
+$color-inactive: #ddd;
+$color-border: #ddd;
+$color-field: #ddd;
+$color-button: #777;
+$size-border-radius: 0.5rem;
+$size-topbar: 7rem;
+$size-replybar: 7rem;
+$size-chatbutton: 8rem;
+$size-vertical-padding-topbar: 1rem;
+$size-horizontal-padding-topbar: 2rem;
+$size-border-width: 0.1rem;
+
+.leftpanel {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-basis: 30%;
+  min-width: 25rem;
+  border-right: 1px solid rgba(98, 105, 118, 0.16);
+}

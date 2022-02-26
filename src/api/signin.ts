@@ -1,5 +1,5 @@
-import HTTPTransport from '../modules/http';
-import BaseAPI from '../modules/base-api';
+import HTTPTransport from '../utils/http';
+import BaseAPI from '../utils/base-api';
 import { SigninFormModel } from '../controllers/signin';
 
 const http = new HTTPTransport();
@@ -13,7 +13,7 @@ class SigninAPI extends BaseAPI {
 
   request() {
     return http
-      .post(`${this.baseUrl}/api/v2/auth/signin`, {
+      .post(`${this.baseUrl}/auth/signin`, {
         withCredentials: true,
         data: this.data,
         headers: {

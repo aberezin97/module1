@@ -5,17 +5,6 @@
   min-width: 30rem;
   border-right: $size-border-width solid $color-border;
 
-  &__header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    height: $size-topbar;
-    min-height: $size-topbar;
-    padding: $size-vertical-padding-topbar $size-horizontal-padding-topbar;
-    border-bottom: $size-border-width solid $color-border;
-  }
-
   &__profilebutton {
     background: none;
     border: none;

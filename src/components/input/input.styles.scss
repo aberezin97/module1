@@ -1,0 +1,84 @@
+.text-input {
+  display: inline-block;
+  height: 4rem;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  border-bottom: 0.1rem solid #bbb;
+
+  &:focus {
+    outline: none;
+  }
+
+  &_wrong {
+    border-color: red;
+  }
+
+  &_active {
+    border-color: #3369f3;
+  }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.4375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4285714;
+  color: inherit;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #d9dbde;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: inherit;
+    background-color: #ffffff;
+    border-color: #90b5e2;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(32, 107, 196, 0.25);
+  }
+
+  &:disabled {
+    background-color: #f1f5f9;
+    opacity: 1;
+  }
+
+  &::placeholder {
+    color: #a5a9b1;
+    opacity: 1;
+  }
+
+  &.is-valid {
+    border-color: #2fb344;
+    padding-right: calc(1.4285714em + 0.875rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232fb344' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='20 6 9 17 4 12'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.3571429em + 0.21875rem) center;
+    background-size: calc(0.7142857em + 0.4375rem) calc(0.7142857em + 0.4375rem);
+
+    &:focus {
+      border-color: #2fb344;
+      box-shadow: 0 0 0 0.25rem rgba(47, 179, 68, 0.25);
+    }
+  }
+
+  &.is-invalid {
+    border-color: #d63939;
+    padding-right: calc(1.4285714em + 0.875rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d63939' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cline x1='18' y1='6' x2='6' y2='18'%3e%3c/line%3e%3cline x1='6' y1='6' x2='18' y2='18'%3e%3c/line%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.3571429em + 0.21875rem) center;
+    background-size: calc(0.7142857em + 0.4375rem) calc(0.7142857em + 0.4375rem);
+
+    &:focus {
+      border-color: #d63939;
+      box-shadow: 0 0 0 0.25rem rgba(214, 57, 57, 0.25);
+    }
+  }
+}
