@@ -12,3 +12,4 @@
  - `npm run eslint` - Запустить eslint
  - `npm run stylelint` - Запустить stylelint
  - `npm run tscript` - Запустить typescript компилятор
+ - `npm run test` - Запустить тестирование
