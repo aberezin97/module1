@@ -8,7 +8,6 @@ class UserController {
     try {
       const response = await userAPI.request();
       if (response.status === 200) {
-        console.log(response);
         const data = JSON.parse(response.response);
         router.go('/messenger');
         store.set('user', data);
@@ -23,12 +22,9 @@ class UserController {
     try {
       const response = await userAPI.request();
       if (response.status === 200) {
-        console.log(response);
         const data = JSON.parse(response.response);
         store.set('user', data);
-        console.log(data);
       } else {
-        console.log(response);
         router.go('/');
         throw new Error(response.responseText);
       }
@@ -42,10 +38,8 @@ class UserController {
     try {
       const response = (await userAPI.post()) as XMLHttpRequest;
       if (response.status === 200) {
-        console.log(response);
         router.go('/');
       } else {
-        console.log(response);
         throw new Error(response.responseText);
       }
     } catch (error) {

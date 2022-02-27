@@ -11,7 +11,6 @@ class ChatsController {
     try {
       const response = await chatsAPI.request();
       if (response.status === 200) {
-        console.log(response);
         const data = JSON.parse(response.response);
         store.set('chats', data);
       }
@@ -29,7 +28,6 @@ class ChatsController {
         store.set('chats', chats.filter((chat) => chat.id != id));
         store.set('currentChat', null);
       } else {
-        console.log(response);
         throw new Error(response.responseText);
       }
     } catch (error) {
@@ -57,7 +55,6 @@ class ChatsController {
           store.set('chats', [newChat]);
         }
       } else {
-        console.log(response);
         throw new Error(response.responseText);
       }
     } catch (error) {
@@ -72,7 +69,6 @@ class ChatsController {
     try {
       const response = await chatsUsersAPI.create(chat.id);
       if (response.status === 200) {
-        console.log(response.response);
         const { token } = JSON.parse(response.response);
         const { user } = store.getState();
         const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${user.id}/${chat.id}/${token}`);
@@ -86,8 +82,6 @@ class ChatsController {
           } else {
             store.set('messages', Array.isArray(data) ? [...data] : [data]);
           }
-          console.log(event.data);
-          console.log(store.getState());
         });
         socket.addEventListener('open', () => {
           socket.send(JSON.stringify({
@@ -112,10 +106,9 @@ class ChatsController {
           (user) => user.login === login
         );
         if (users.length !== 1) {
-          throw new Error('Bla bla bla');
+          throw new Error('No such user');
         };
         const userId = users[0]['id'];
-        console.log(userId);
         const chatsUsersAPI = new ChatsUsersAPI({
           users: [
             userId,
@@ -145,10 +138,9 @@ class ChatsController {
           (user) => user.login === login
         );
         if (users.length !== 1) {
-          throw new Error('Bla bla bla');
+          throw new Error('No such user');
         };
         const userId = users[0]['id'];
-        console.log(userId);
         const chatsUsersAPI = new ChatsUsersAPI({
           users: [
             userId,

@@ -1,65 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-:root {
-  --tblr-blue: #206bc4;
-  --tblr-indigo: #4263eb;
-  --tblr-purple: #ae3ec9;
-  --tblr-pink: #d6336c;
-  --tblr-red: #d63939;
-  --tblr-orange: #f76707;
-  --tblr-yellow: #f59f00;
-  --tblr-green: #2fb344;
-  --tblr-teal: #0ca678;
-  --tblr-cyan: #17a2b8;
-  --tblr-white: #ffffff;
-  --tblr-gray: #475569;
-  --tblr-gray-dark: #1e293b;
-  --tblr-gray-100: #f1f5f9;
-  --tblr-gray-200: #e2e8f0;
-  --tblr-gray-300: #cbd5e1;
-  --tblr-gray-400: #94a3b8;
-  --tblr-gray-500: #64748b;
-  --tblr-gray-600: #475569;
-  --tblr-gray-700: #334155;
-  --tblr-gray-800: #1e293b;
-  --tblr-gray-900: #0f172a;
-  --tblr-primary: #206bc4;
-  --tblr-secondary: #626976;
-  --tblr-success: #2fb344;
-  --tblr-info: #4299e1;
-  --tblr-warning: #f76707;
-  --tblr-danger: #d63939;
-  --tblr-light: #f8fafc;
-  --tblr-dark: #1e293b;
-  --tblr-muted: #626976;
-  --tblr-primary-rgb: 32, 107, 196;
-  --tblr-secondary-rgb: 98, 105, 118;
-  --tblr-success-rgb: 47, 179, 68;
-  --tblr-info-rgb: 66, 153, 225;
-  --tblr-warning-rgb: 247, 103, 7;
-  --tblr-danger-rgb: 214, 57, 57;
-  --tblr-light-rgb: 248, 250, 252;
-  --tblr-dark-rgb: 30, 41, 59;
-  --tblr-muted-rgb: 98, 105, 118;
-  --tblr-white-rgb: 255, 255, 255;
-  --tblr-black-rgb: 0, 0, 0;
-  --tblr-body-color-rgb: 30, 41, 59;
-  --tblr-body-bg-rgb: 248, 250, 252;
-  --tblr-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont,
-    San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-  --tblr-font-monospace: false, Menlo, Monaco, Consolas, Liberation Mono,
-    Courier New, monospace;
-  --tblr-gradient: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15),
-    rgba(255, 255, 255, 0)
-  );
-  --tblr-body-font-family: var(--tblr-font-sans-serif);
-  --tblr-body-font-size: 0.875rem;
-  --tblr-body-font-weight: 400;
-  --tblr-body-line-height: 1.4285714;
-  --tblr-body-color: #1e293b;
-  --tblr-body-bg: #f8fafc;
-}
 
 *,
 *::after,
@@ -71,12 +10,11 @@ body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont,
   San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-  font-size: var(--tblr-body-font-size);
-  font-weight: var(--tblr-body-font-weight);
-  line-height: var(--tblr-body-line-height);
-  color: var(--tblr-body-color);
-  font-weight: var(--tblr-body-font-weight);
-  background-color: var(--tblr-body-bg);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4285714;
+  color: #1e293b;
+  background-color: #f8fafc;
 }
 
 .page {
@@ -171,77 +109,62 @@ body {
 }
 
 .text-primary {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-primary-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(32, 107, 196, 1) !important;
 }
 
 .text-secondary {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-secondary-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(98, 105, 118, 1) !important;
 }
 
 .text-success {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-success-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(47, 179, 68, 1) !important;
 }
 
 .text-info {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-info-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(66, 153, 225, 1) !important;
 }
 
 .text-warning {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-warning-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(247, 103, 7, 1) !important;
 }
 
 .text-danger {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-danger-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(214, 57, 57, 1) !important;
 }
 
 .text-light {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-light-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(248, 250, 252, 1) !important;
 }
 
 .text-dark {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-dark-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(30, 41, 59, 1) !important;
 }
 
 .text-muted {
-  --tblr-text-opacity: 1;
   color: #626976 !important;
 }
 
 .text-black {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-black-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(0, 0, 0, 1) !important;
 }
 
 .text-white {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-white-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(255, 255, 255, 1) !important;
 }
 
 .text-body {
-  --tblr-text-opacity: 1;
-  color: rgba(var(--tblr-body-color-rgb), var(--tblr-text-opacity)) !important;
+  color: rgba(30, 41, 59, 1) !important;
 }
 
 .text-black-50 {
-  --tblr-text-opacity: 1;
   color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .text-white-50 {
-  --tblr-text-opacity: 1;
   color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .text-reset {
-  --tblr-text-opacity: 1;
   color: inherit !important;
 }
 

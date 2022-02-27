@@ -24,7 +24,6 @@ class ChangeUserController {
     try {
       const response = await changeUserProfileAPI.update();
       if (response.status === 200) {
-        console.log(response);
         const data = JSON.parse(response.response);
         store.set('user', data);
       } else {
@@ -41,7 +40,6 @@ class ChangeUserController {
       const response = await changeUserAvatarAPI.update();
       if (response.status === 200) {
         const data = JSON.parse(response.response);
-        console.log(data);
         store.set('user', data);
       } else {
         throw new Error(response.responseText);
