@@ -22,14 +22,14 @@ class MessengerReplybar extends Block {
       }),
       buttonSend: new MessengerSendButton({
         events: {
-          click: (e) => {
+          click: () => {
             const { message } = getDataFromInputs(['message']);
             converstationController.sendMessage(message);
           },
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
         },
       },

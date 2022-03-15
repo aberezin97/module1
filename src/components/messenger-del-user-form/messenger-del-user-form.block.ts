@@ -28,7 +28,7 @@ class MessengerDelUserForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
           console.log(this._element);
           const { del_user_chatid, del_user_login } = getDataFromInputs([

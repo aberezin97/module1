@@ -17,7 +17,7 @@ class MessengerLeftPanelFooter extends Block {
       addChatButton: new Button({
         text: 'Создать чат',
         events: {
-          click: (e) => {
+          click: (e: Event) => {
             e.stopPropagation();
             const element: Element | null =
               document.getElementById('add_chat_modal');

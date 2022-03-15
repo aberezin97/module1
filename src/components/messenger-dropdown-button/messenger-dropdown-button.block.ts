@@ -3,7 +3,7 @@ import template from './messenger-dropdown-button.template';
 import './messenger-dropdown-button.styles.scss';
 
 class MessengerDropdownButton extends Block {
-  constructor(props: Object) {
+  constructor(props: Record<string, any>) {
     super('button', {
       ...props,
       attributes: {

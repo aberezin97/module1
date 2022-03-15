@@ -12,7 +12,7 @@ import { withUser } from '../../utils/connect';
 class SettingsChangePasswordPage extends Block {
   constructor(props: Object) {
     super('div', {
-      ...props,
+      ...props, 
       user: {
         login: '',
       },

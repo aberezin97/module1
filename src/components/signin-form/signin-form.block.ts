@@ -5,7 +5,6 @@ import './signin-form.styles.scss';
 import Button from '../button/button.block';
 import Input from '../input/input.block';
 import signinController from '../../controllers/signin';
-import { loginRegex, passwordRegex } from '../../utils/regex';
 import { getDataFromInputs } from '../../utils/forms';
 
 class SigninForm extends Block {
@@ -32,7 +31,7 @@ class SigninForm extends Block {
         },
       }),
       events: {
-        submit: (e: any) => {
+        submit: (e: Event) => {
           e.preventDefault();
           const { login, password } = getDataFromInputs(['login', 'password']);
           signinController.signin({ login, password });

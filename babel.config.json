@@ -1,5 +1,4 @@
 {
-    "presets": ["@babel/preset-typescript",
-        "@parcel/babel-preset-env"],
+    "presets": ["@babel/preset-typescript"],
     "plugins": ["@babel/transform-runtime"]
 }

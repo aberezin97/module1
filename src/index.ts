@@ -7,6 +7,7 @@ import Error500Page from './pages/error500/error500.block';
 import SettingsPage from './pages/settings/settings.block';
 import SettingsChangeDataPage from './pages/settings-change-data/settings-change-data.block';
 import SettingsChangePasswordPage from './pages/settings-change-password/settings-change-password.block';
+import './index.scss';
 
 const router = new Router('.app');
 router

@@ -20,12 +20,9 @@ class MessengerDelChatForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
-          console.log(e);
-          console.log(getDataFromInputs(['foobar']));
           const { foobar } = getDataFromInputs(['foobar']);
-          console.log(chatId);
           chatsController.deleteChat(foobar);
         },
       },

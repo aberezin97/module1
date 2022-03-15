@@ -22,7 +22,7 @@ class SettingsChangeDataForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
           changeUserController.changeProfile(
             getDataFromInputs([

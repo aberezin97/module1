@@ -28,9 +28,8 @@ class MessengerAddChatForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
-          console.log('Hi');
           const { login } = getDataFromInputs(['login']);
           chatsController.createChat(login);
         },

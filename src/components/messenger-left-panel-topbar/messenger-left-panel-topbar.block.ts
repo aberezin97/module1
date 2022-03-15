@@ -2,7 +2,6 @@ import Block from '../../utils/block';
 import template from './messenger-left-panel-topbar.template';
 import './messenger-left-panel-topbar.styles.scss';
 
-import Input from '../input/input.block';
 import MessengerSearchInput from '../messenger-search-input/messenger-serach-input.block';
 
 class MessengerLeftPanelTopbar extends Block {

@@ -6,7 +6,7 @@ import MessengerControlButton from '../messenger-control-button/messenger-contro
 import { withCurrentChat } from '../../utils/connect';
 
 class MessengerRightPanelTopbar extends Block {
-  constructor(props: Object) {
+  constructor(props: Record<string, any>) {
     super('div', {
       controlButton: new MessengerControlButton({
         currentChat: props.currentChat,

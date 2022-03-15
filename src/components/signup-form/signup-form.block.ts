@@ -91,7 +91,7 @@ class SignupForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
           signupController.signup(
             getDataFromInputs([

@@ -11,7 +11,7 @@ class SearchUserAPI extends BaseAPI {
     this.data = JSON.stringify(data);
   }
 
-  request(id) {
+  request(id: number) {
     return http
       .get(`${this.baseUrl}/user/${id}`, {
         withCredentials: true,

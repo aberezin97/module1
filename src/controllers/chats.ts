@@ -2,14 +2,13 @@
 import ChatsAPI from '../api/chats';
 import ChatsUsersAPI from '../api/chats-users';
 import SearchUserAPI from '../api/search-user';
-import { withMessages } from '../utils/connect';
-import store, { StoreEvents } from '../utils/store';
+import store from '../utils/store';
 
 class ChatsController {
   public async getChats() {
     const chatsAPI = new ChatsAPI();
     try {
-      const response = await chatsAPI.request();
+      const response = await chatsAPI.request() as XMLHttpRequest;
       if (response.status === 200) {
         const data = JSON.parse(response.response);
         store.set('chats', data);
@@ -22,10 +21,10 @@ class ChatsController {
   public async deleteChat(id: Number) {
     const chatsAPI = new ChatsAPI({ chatId: id });
     try {
-      const response = await chatsAPI.delete();
+      const response = await chatsAPI.delete() as XMLHttpRequest;
       if (response.status === 200) {
         const { chats } = store.getState();
-        store.set('chats', chats.filter((chat) => chat.id != id));
+        store.set('chats', chats.filter((chat: Record<string, any>) => chat.id != id));
         store.set('currentChat', null);
       } else {
         throw new Error(response.responseText);
@@ -38,7 +37,7 @@ class ChatsController {
   public async createChat(title: string) {
     const chatsAPI = new ChatsAPI({ title: title });
     try {
-      const response = await chatsAPI.create();
+      const response = await chatsAPI.create() as XMLHttpRequest;
       if (response.status === 200) {
         const { id } = JSON.parse(response.response);
         const { chats } = store.getState();
@@ -62,12 +61,12 @@ class ChatsController {
     }
   }
 
-  public async setCurrentChat(chat) {
+  public async setCurrentChat(chat: Record<string, any> | null) {
     store.set('currentChat', chat);
     if (chat === null) return;
     const chatsUsersAPI = new ChatsUsersAPI();
     try {
-      const response = await chatsUsersAPI.create(chat.id);
+      const response = await chatsUsersAPI.create(chat.id) as XMLHttpRequest;
       if (response.status === 200) {
         const { token } = JSON.parse(response.response);
         const { user } = store.getState();
@@ -100,10 +99,10 @@ class ChatsController {
   public async addUserToTheChat(chatId: Number, login: string) {
     const searchUserAPI = new SearchUserAPI({ login });
     try {
-      const searchResponse = await searchUserAPI.post();
+      const searchResponse = await searchUserAPI.post() as XMLHttpRequest;
       if (searchResponse.status === 200) {
         const users = JSON.parse(searchResponse.response).filter(
-          (user) => user.login === login
+          (user: Record<string, any>) => user.login === login
         );
         if (users.length !== 1) {
           throw new Error('No such user');
@@ -115,7 +114,7 @@ class ChatsController {
           ],
           chatId
         });
-        const addResponse = await chatsUsersAPI.update();
+        const addResponse = await chatsUsersAPI.update() as XMLHttpRequest;
         if (addResponse.status === 200) {
           console.log(addResponse.response);
         } else {
@@ -132,10 +131,10 @@ class ChatsController {
   public async delUserFromTheChat(chatId: Number, login: string) {
     const searchUserAPI = new SearchUserAPI({ login });
     try {
-      const searchResponse = await searchUserAPI.post();
+      const searchResponse = await searchUserAPI.post() as XMLHttpRequest;
       if (searchResponse.status === 200) {
         const users = JSON.parse(searchResponse.response).filter(
-          (user) => user.login === login
+          (user: Record<string, any>) => user.login === login
         );
         if (users.length !== 1) {
           throw new Error('No such user');
@@ -147,7 +146,7 @@ class ChatsController {
           ],
           chatId
         });
-        const addResponse = await chatsUsersAPI.delete();
+        const addResponse = await chatsUsersAPI.delete() as XMLHttpRequest;
         if (addResponse.status === 200) {
           console.log(addResponse.response);
         } else {

@@ -2,7 +2,6 @@ import Block from '../../utils/block';
 import template from './messenger-chats.template';
 import './messenger-chats.styles.scss';
 
-import MessengerChatsButton from '../messenger-chats-button/messenger-chats-button.block';
 import chatsController from '../../controllers/chats';
 import { withChats } from '../../utils/connect';
 
@@ -14,7 +13,6 @@ class MessengerChats extends Block {
         class: 'leftpanel__chats',
       },
       chats: [],
-      chatsButtons: new Array<MessengerChatsButton>(),
       events: {
         click: (e: PointerEvent) => {
           const chatButtons = document.getElementsByClassName('chat-button');

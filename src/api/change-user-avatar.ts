@@ -4,7 +4,7 @@ import BaseAPI from '../utils/base-api';
 const http = new HTTPTransport();
 
 class ChangeUserAvatarAPI extends BaseAPI {
-  private data: string;
+  private data: FormData;
   constructor(data: FormData) {
     super();
     this.data = data;

@@ -6,7 +6,7 @@ class UserController {
   public async isAuthenticated() {
     const userAPI = new UserAPI();
     try {
-      const response = await userAPI.request();
+      const response = await userAPI.request() as XMLHttpRequest;
       if (response.status === 200) {
         const data = JSON.parse(response.response);
         router.go('/messenger');
@@ -20,7 +20,7 @@ class UserController {
   public async getUser() {
     const userAPI = new UserAPI();
     try {
-      const response = await userAPI.request();
+      const response = await userAPI.request() as XMLHttpRequest;
       if (response.status === 200) {
         const data = JSON.parse(response.response);
         store.set('user', data);

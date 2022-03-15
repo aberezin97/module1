@@ -30,7 +30,7 @@ class MessengerAddUserForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
           console.log(this._element);
           const { add_user_chatid, add_user_login } = getDataFromInputs([

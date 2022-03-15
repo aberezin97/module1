@@ -1,5 +1,4 @@
 import SignupAPI from '../api/signup';
-import store from '../utils/store';
 import router from '../index';
 
 export interface SignupFormModel {

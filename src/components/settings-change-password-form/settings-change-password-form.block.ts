@@ -43,7 +43,7 @@ class SettingsChangePasswordForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
           changeUserController.changePassword(
             getDataFromInputs(['oldPassword', 'newPassword'])

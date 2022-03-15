@@ -1,5 +1,4 @@
 import SigninAPI from '../api/signin';
-import store from '../utils/store';
 import router from '../index';
 
 export interface SigninFormModel {

@@ -18,7 +18,6 @@ class SettingsAvatar extends Block {
   }
 
   render() {
-    console.log(this.props);
     this.props.attributes.style = `background-image: url(https://ya-praktikum.tech/api/v2/resources${this.props.avatar})`;
     return this.compile(template, this.props);
   }

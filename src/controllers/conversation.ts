@@ -2,7 +2,7 @@
 import store from '../utils/store';
 
 class ConversationController {
-  public async sendMessage(message) {
+  public async sendMessage(message: string) {
     const { socket } = store.getState();
     if (socket) {
       socket.send(

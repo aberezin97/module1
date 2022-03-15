@@ -4,14 +4,10 @@ import './settings.styles.scss';
 
 import Card from '../../components/card/card.block';
 import SettingsDataForm from '../../components/settings-data-form/settings-data-form.block';
-import SettingsUserData from '../../components/settings-user-data/settings-user-data.block';
 import SettingsLinkback from '../../components/settings-linkback/settings-linkback.block';
-import Button from '../../components/button/button.block';
 import SettingsAvatar from '../../components/settings-avatar/settings-avatar.block';
 import userController from '../../controllers/user';
 import { withUser } from '../../utils/connect';
-
-const pug = require('pug');
 
 class SettingsPage extends Block {
   constructor(props: Object) {

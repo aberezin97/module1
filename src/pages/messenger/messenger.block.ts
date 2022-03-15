@@ -6,8 +6,6 @@ import MessengerLeftPanel from '../../components/messenger-left-panel/messenger-
 import MessengerRightPanel from '../../components/messenger-right-panel/messenger-right-panel.block';
 import userController from '../../controllers/user';
 
-const pug = require('pug');
-
 class MessengerPage extends Block {
   constructor(props: Object) {
     super('div', {
@@ -22,12 +20,8 @@ class MessengerPage extends Block {
   }
 
   render() {
-    const fn = pug.compile(template, {});
     document.title = 'Мессенджер - Чат';
     return this.compile(template, this.props);
-    // return fn({
-    //   ...this.props,
-    // });
   }
 }
 

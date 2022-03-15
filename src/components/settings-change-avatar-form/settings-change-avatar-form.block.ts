@@ -24,10 +24,10 @@ class SettingsChangeAvatarForm extends Block {
         },
       }),
       events: {
-        submit: (e) => {
+        submit: (e: Event) => {
           e.preventDefault();
           const avatarForm = document.getElementById('avatar-form');
-          const form = new FormData(avatarForm);
+          const form = new FormData(avatarForm as HTMLFormElement);
           changeUserController.changeAvatar(form);
         },
       },
