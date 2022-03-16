@@ -9,6 +9,6 @@ app.all('*', (req, res) => {
   res.sendFile('dist/index.html', { root: __dirname });
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Express server started on port ${PORT}`);
 });

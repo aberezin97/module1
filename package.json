@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "echo Hello World!"
     }
   },
   "homepage": "https://github.com/aberezin97/module1#readme",
