@@ -13,10 +13,11 @@
     }
   },
   "scripts": {
+    "prepare": "husky install",
     "dev": "webpack serve --open",
     "build": "webpack --mode=production --node-env=production",
     "start": "node ./app.js",
-    "test": "./node_modules/.bin/mocha -r jsdom-global/register",
+    "test": "./node_modules/.bin/mocha -r jsdom-global/register -r ts-node/register",
     "eslint": "eslint . --ext .ts --fix",
     "tscript": "tsc",
     "stylelint": "stylelint . --fix"
@@ -30,11 +31,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aberezin97/module1/issues"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo Hello World!"
-    }
   },
   "homepage": "https://github.com/aberezin97/module1#readme",
   "devDependencies": {

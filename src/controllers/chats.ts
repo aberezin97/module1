@@ -64,9 +64,9 @@ class ChatsController {
   public async setCurrentChat(chat: Record<string, any> | null) {
     store.set('currentChat', chat);
     if (chat === null) return;
-    const chatsUsersAPI = new ChatsUsersAPI();
+    const chatsUsersAPI = new ChatsUsersAPI({ id: chat.id });
     try {
-      const response = await chatsUsersAPI.create(chat.id) as XMLHttpRequest;
+      const response = await chatsUsersAPI.create() as XMLHttpRequest;
       if (response.status === 200) {
         const { token } = JSON.parse(response.response);
         const { user } = store.getState();

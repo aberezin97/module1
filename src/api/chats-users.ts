@@ -11,7 +11,8 @@ class ChatsUsersAPI extends BaseAPI {
     this.data = JSON.stringify(data);
   }
 
-  create(id: number) {
+  create() {
+    const { id } = JSON.parse(this.data);
     return http
       .post(`${this.baseUrl}/chats/token/${id}`, {
         withCredentials: true,

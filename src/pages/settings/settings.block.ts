@@ -26,14 +26,13 @@ class SettingsPage extends Block {
         title: 'Настройки',
         body: new SettingsDataForm({}),
       }),
+      avatar: new SettingsAvatar({
+      }),
     });
     userController.getUser();
   }
 
   render() {
-    this.children.avatar = new SettingsAvatar({
-      url: this.props.user?.avatar,
-    });
     document.title = 'Мессенджер - Настройки';
     return this.compile(template, this.props);
   }

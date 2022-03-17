@@ -21,11 +21,11 @@ class MessengerChats extends Block {
             chatButtons[i].classList.remove('chat-button_active');
           }
           if (target) {
-            const button = target.closest('.chat-button');
+            const button = target.closest('.chat-button') as HTMLElement;
             if (button) {
               button.classList.add('chat-button_active');
               chatsController.setCurrentChat(
-                JSON.parse(button.dataset.chatData)
+                JSON.parse(button.dataset.chatData as string)
               );
             } else {
               chatsController.setCurrentChat(null);

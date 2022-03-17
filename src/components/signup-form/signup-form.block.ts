@@ -4,7 +4,7 @@ import './signup-form.styles.scss';
 
 import Button from '../button/button.block';
 import Input from '../input/input.block';
-import signupController from '../../controllers/signup';
+import signupController, { SignupFormModel } from '../../controllers/signup';
 import { getDataFromInputs } from '../../utils/forms';
 import {
   emailRegex,
@@ -101,7 +101,7 @@ class SignupForm extends Block {
               'first_name',
               'second_name',
               'phone',
-            ])
+            ]) as SignupFormModel
           );
         },
       },

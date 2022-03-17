@@ -4,7 +4,7 @@ import './settings-change-data-form.styles.scss';
 
 import SettingsUserData from '../settings-user-data/settings-user-data.block';
 import { getDataFromInputs } from '../../utils/forms';
-import changeUserController from '../../controllers/change-user';
+import changeUserController, { ChangeProfileFormModel } from '../../controllers/change-user';
 import Button from '../button/button.block';
 
 class SettingsChangeDataForm extends Block {
@@ -32,7 +32,7 @@ class SettingsChangeDataForm extends Block {
               'second_name',
               'display_name',
               'phone',
-            ])
+            ]) as ChangeProfileFormModel
           );
         },
       },

@@ -9,7 +9,7 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
