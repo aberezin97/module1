@@ -3,6 +3,7 @@
 
 # Страница онлайн
 [Netlify](https://cranky-blackwell-1b0f56.netlify.app/)
+[Heroku](https://my-super-awesome-fantastic-app.herokuapp.com/)
 
 # Установка и запуск
 

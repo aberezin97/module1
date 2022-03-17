@@ -31,8 +31,8 @@ class SettingsChangePasswordForm extends Block {
           const el: HTMLInputElement | null = document.getElementById(
             'newPassword'
           ) as HTMLInputElement;
-          const foo = el ? el.value : '';
-          return passwordRegex.test(value) && value === foo;
+          const newPassword = el ? el.value : '';
+          return passwordRegex.test(value) && value === newPassword;
         },
       }),
       buttonSubmit: new Button({

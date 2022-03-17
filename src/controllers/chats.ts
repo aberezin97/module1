@@ -88,6 +88,12 @@ class ChatsController {
             type: 'get old',
           })); 
         });
+        socket.addEventListener('close', () => {
+          store.set('messages', []);
+        });
+        socket.addEventListener('error', (e) => {
+          console.log(`Error: ${e}`);
+        });
       } else {
         throw new Error(response.responseText);
       }
