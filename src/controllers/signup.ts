@@ -1,5 +1,6 @@
 import SignupAPI from '../api/signup';
 import router from '../index';
+import store from '../utils/store';
 
 export interface SignupFormModel {
   first_name: string;
@@ -21,7 +22,7 @@ class SignupController {
         throw new Error(response.responseText);
       }
     } catch (error) {
-      console.log(error);
+      store.set('error', JSON.parse(error.message)['reason']);
     }
   }
 }

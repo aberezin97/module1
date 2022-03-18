@@ -42,4 +42,8 @@ export const withMessages = connect((state) => ({
   messages: state.messages ? state.messages : [],
 }));
 
+export const withError = connect((state) => ({
+  error: state?.error
+}));
+
 export default connect;

@@ -8,7 +8,11 @@ class ChangeUserProfileAPI extends BaseAPI {
   private data: string;
   constructor(data: ChangeProfileFormModel) {
     super();
-    this.data = JSON.stringify(data);
+    try {
+      this.data = JSON.stringify(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   update() {

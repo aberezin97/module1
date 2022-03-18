@@ -21,7 +21,7 @@ class MessengerChats extends Block {
             chatButtons[i].classList.remove('chat-button_active');
           }
           if (target) {
-            const button = target.closest('.chat-button') as HTMLElement;
+            const button = target.closest('.chat-button') as HTMLElement | null;
             if (button) {
               button.classList.add('chat-button_active');
               chatsController.setCurrentChat(

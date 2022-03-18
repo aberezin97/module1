@@ -32,6 +32,12 @@
     color: var(--tblr-btn-color-text);
     border-color: rgba(var(--tblr-btn-color-text-rgb), 0.48);
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
 }
 
 .btn-primary,

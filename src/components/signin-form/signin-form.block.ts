@@ -25,9 +25,11 @@ class SigninForm extends Block {
       }),
       buttonSubmit: new Button({
         text: 'Войти',
+        type: 'submit',
         attributes: {
           class: 'btn btn-primary w-100',
-          type: 'submit',
+          disabled: true,
+          id: 'signin_button',
         },
       }),
       events: {
@@ -36,6 +38,16 @@ class SigninForm extends Block {
           const { login, password } = getDataFromInputs(['login', 'password']);
           signinController.signin({ login, password });
         },
+        focusout: () => {
+          const isLoginValid = (document.getElementById('login') as HTMLInputElement).value !== '';
+          const isPasswordValid = (document.getElementById('password') as HTMLInputElement).value !== '';
+          const signinButton = document.getElementById('signin_button');
+          if (isLoginValid && isPasswordValid) {
+            signinButton?.removeAttribute('disabled');
+          } else {
+            signinButton?.setAttribute('disabled', '');
+          }
+        }
       },
     });
   }

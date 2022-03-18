@@ -8,7 +8,11 @@ class SignupAPI extends BaseAPI {
   private data: string;
   constructor(data: SignupFormModel) {
     super();
-    this.data = JSON.stringify(data);
+    try {
+      this.data = JSON.stringify(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   post() {

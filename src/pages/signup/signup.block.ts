@@ -3,8 +3,10 @@ import template from './signup.template';
 import './signup.styles.scss';
 
 import Card from '../../components/card/card.block';
+import Alert from '../../components/alert/alert.block';
 import SignupForm from '../../components/signup-form/signup-form.block';
 import userController from '../../controllers/user';
+import { withError } from '../../utils/connect';
 
 class SignupPage extends Block {
   constructor(props: Object) {
@@ -17,8 +19,16 @@ class SignupPage extends Block {
         title: 'Регистрация',
         body: new SignupForm({}),
       }),
+      alert: new Alert({}),
     });
     userController.isAuthenticated();
+  }
+
+  componentDidUpdate(_oldProps: Object, _newProps: Object): boolean {
+    this.children.alert.setProps({
+      content: this.props.error,
+    })
+    return true;
   }
 
   render() {
@@ -27,4 +37,4 @@ class SignupPage extends Block {
   }
 }
 
-export default SignupPage;
+export default withError(SignupPage);

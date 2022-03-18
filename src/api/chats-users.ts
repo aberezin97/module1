@@ -8,13 +8,23 @@ class ChatsUsersAPI extends BaseAPI {
 
   constructor(data = {}) {
     super();
-    this.data = JSON.stringify(data);
+    try {
+      this.data = JSON.stringify(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   create() {
-    const { id } = JSON.parse(this.data);
+    let _id;
+    try {
+      const { id } = JSON.parse(this.data);
+      _id = id;
+    } catch (error) {
+      console.log(error);
+    }
     return http
-      .post(`${this.baseUrl}/chats/token/${id}`, {
+      .post(`${this.baseUrl}/chats/token/${_id}`, {
         withCredentials: true,
         headers: {
           'content-type': 'application/json',

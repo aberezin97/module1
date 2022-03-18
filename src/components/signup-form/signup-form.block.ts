@@ -88,6 +88,8 @@ class SignupForm extends Block {
         type: 'submit',
         attributes: {
           class: 'btn btn-primary w-100',
+          disabled: true,
+          id: 'signup_button',
         },
       }),
       events: {
@@ -104,6 +106,33 @@ class SignupForm extends Block {
             ]) as SignupFormModel
           );
         },
+        focusout: () => {
+          const isEmailValid = document.getElementById('email')?.dataset['isValid'] === 'true';
+          const isLoginValid = document.getElementById('login')?.dataset['isValid'] === 'true';
+          const isFirstnameValid = document.getElementById('first_name')?.dataset['isValid'] === 'true';
+          const isSecondnameValid = document.getElementById('second_name')?.dataset['isValid'] === 'true';
+          const isPhoneValid = document.getElementById('phone')?.dataset['isValid'] === 'true';
+          const isPasswordValid = document.getElementById('password')?.dataset['isValid'] === 'true';
+          const isPasswordConfirmationValid = document.getElementById('password_confirmation')?.dataset['isValid'] === 'true';
+          const signupButton = document.getElementById('signup_button');
+          if (
+            isEmailValid && 
+            isLoginValid && 
+            isFirstnameValid && 
+            isSecondnameValid && 
+            isPhoneValid && 
+            isPasswordValid && 
+            isPasswordConfirmationValid
+          ) {
+            if (signupButton !== null) {
+              signupButton.removeAttribute('disabled');
+            }
+          } else {
+            if (signupButton !== null) {
+              signupButton.setAttribute('disabled', '');
+            }
+          }
+        }
       },
     });
   }
