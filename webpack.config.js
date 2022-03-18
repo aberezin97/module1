@@ -12,7 +12,9 @@ const config = {
     output: {
         publicPath: "/",
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        clean: {
+            keep: '_redirects'
+        }
     },
     devServer: {
         open: true,
